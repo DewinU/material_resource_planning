@@ -13,12 +13,21 @@ namespace MRP.Beans
         public string Nombre { get; set; }
         public string UdM { get; set; }
         public int MinStock { get; set; }
-        public float TiempoEntrega { get; set; }
         public float PrecioCompra { get; set; }
+        public int TiempoEntrega { get; set; }
         public int Stock { get; set; }
         public bool isProcured { get; set; }
+        public float costoMantenimiento { get; set; }
+        public float costoEnvio { get; set; }
 
-       
+
+
+
+
+
+
+
+
     }
 
 }

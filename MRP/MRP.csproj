@@ -59,6 +59,7 @@
     <Compile Include="Beans\BOMDetalle.cs" />
     <Compile Include="Beans\MateriaPrima.cs" />
     <Compile Include="Beans\Proveedor.cs" />
+    <Compile Include="Calculos\mpData.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,9 +167,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Calculos\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\business_inventory_maintenance_product_box_boxes_2326.png" />
   </ItemGroup>
