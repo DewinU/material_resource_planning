@@ -57,7 +57,7 @@ namespace MRP.Forms
 
         private void btnGestion_Click(object sender, EventArgs e)
         {
-            ChangeUserControl(new StockForm());
+            ChangeUserControl(new StockForm(panel1));
 
         }
 
@@ -95,7 +95,7 @@ namespace MRP.Forms
             switch (id)
             {
                 case 1:
-                    ChangeUserControl(new StockForm());
+                    ChangeUserControl(new StockForm(panel1));
                     break;
                 case 2:
                     ChangeUserControl(new EoqForm());
