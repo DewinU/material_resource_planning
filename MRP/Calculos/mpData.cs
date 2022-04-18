@@ -10,7 +10,7 @@ namespace MRP.Calculos
     public class mpData
     {
         public List<MateriaPrima> mpList = new List<MateriaPrima>();
-        public void newMateria(int id, int idProv, string nombre, string UdM, int minStock, float precio, int stock, int tiempoEntrega, bool isProc)
+        public void newMateria(int id, int idProv, string nombre, string UdM, int minStock, float precio, int stock, int tiempoEntrega, bool isProc, float costoMantenimiento, float costoEnvio)
         {
             MateriaPrima mp = new MateriaPrima();
             mp.IdMP = id;
@@ -21,6 +21,8 @@ namespace MRP.Calculos
             mp.PrecioCompra = precio;
             mp.TiempoEntrega = tiempoEntrega;
             mp.isProcured = isProc;
+            mp.costoMantenimiento = costoEnvio;
+            mp.costoEnvio = costoEnvio;
 
             mpList.Add(mp);
         }
@@ -35,7 +37,7 @@ namespace MRP.Calculos
             return mpList.FirstOrDefault(prod => prod.IdMP == id);
         }
 
-        public void editMp(int id, string nombre, string UdM, int minStock, float precio, int stock, int tiempoEntrega, bool isProc)
+        public void editMp(int id, string nombre, string UdM, int minStock, float precio, int stock, int tiempoEntrega, bool isProc, float costoMantenimiento, float costoEnvio)
         {
             MateriaPrima mp = mpList.FirstOrDefault(prod => prod.IdMP == id);
             mp.Nombre = nombre;
@@ -45,6 +47,8 @@ namespace MRP.Calculos
             mp.Stock = stock;
             mp.TiempoEntrega = tiempoEntrega;
             mp.isProcured = isProc;
+
+
 
 
         }
