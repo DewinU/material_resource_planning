@@ -98,17 +98,17 @@
     <Compile Include="Forms\MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ModeloForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Forms\ModeloForm.Designer.cs">
-      <DependentUpon>ModeloForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\MRPForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Forms\MRPForm.Designer.cs">
       <DependentUpon>MRPForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ModelosP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ModelosP.Designer.cs">
+      <DependentUpon>ModelosP.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PlanForm.cs">
       <SubType>UserControl</SubType>
@@ -145,11 +145,11 @@
     <EmbeddedResource Include="Forms\MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ModeloForm.resx">
-      <DependentUpon>ModeloForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MRPForm.resx">
       <DependentUpon>MRPForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ModelosP.resx">
+      <DependentUpon>ModelosP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PlanForm.resx">
       <DependentUpon>PlanForm.cs</DependentUpon>

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnGestion = new System.Windows.Forms.Button();
             this.btnEOQ = new System.Windows.Forms.Button();
             this.btnPlan = new System.Windows.Forms.Button();
+            this.btnModelosP = new System.Windows.Forms.Button();
             this.btnMRP = new System.Windows.Forms.Button();
-            this.btnModelos = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,21 +46,13 @@
             this.flowLayoutPanel1.Controls.Add(this.btnGestion);
             this.flowLayoutPanel1.Controls.Add(this.btnEOQ);
             this.flowLayoutPanel1.Controls.Add(this.btnPlan);
+            this.flowLayoutPanel1.Controls.Add(this.btnModelosP);
             this.flowLayoutPanel1.Controls.Add(this.btnMRP);
-            this.flowLayoutPanel1.Controls.Add(this.btnModelos);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1168, 49);
             this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 49);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1168, 552);
-            this.panel1.TabIndex = 1;
             // 
             // btnVolver
             // 
@@ -114,31 +106,39 @@
             this.btnPlan.UseVisualStyleBackColor = true;
             this.btnPlan.Click += new System.EventHandler(this.btnPlan_Click);
             // 
+            // btnModelosP
+            // 
+            this.btnModelosP.BackgroundImage = global::MRP.Properties.Resources.ordenar_comida;
+            this.btnModelosP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnModelosP.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnModelosP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModelosP.Location = new System.Drawing.Point(249, 3);
+            this.btnModelosP.Name = "btnModelosP";
+            this.btnModelosP.Size = new System.Drawing.Size(61, 42);
+            this.btnModelosP.TabIndex = 4;
+            this.btnModelosP.UseVisualStyleBackColor = true;
+            this.btnModelosP.Click += new System.EventHandler(this.btnMRP_Click);
+            // 
             // btnMRP
             // 
             this.btnMRP.BackgroundImage = global::MRP.Properties.Resources.entrega_de_pedidos;
             this.btnMRP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnMRP.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnMRP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMRP.Location = new System.Drawing.Point(249, 3);
+            this.btnMRP.Location = new System.Drawing.Point(316, 3);
             this.btnMRP.Name = "btnMRP";
             this.btnMRP.Size = new System.Drawing.Size(61, 42);
-            this.btnMRP.TabIndex = 4;
+            this.btnMRP.TabIndex = 5;
             this.btnMRP.UseVisualStyleBackColor = true;
-            this.btnMRP.Click += new System.EventHandler(this.btnMRP_Click);
+            this.btnMRP.Click += new System.EventHandler(this.btnModelos_Click);
             // 
-            // btnModelos
+            // panel1
             // 
-            this.btnModelos.BackgroundImage = global::MRP.Properties.Resources.ordenar_comida;
-            this.btnModelos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnModelos.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnModelos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModelos.Location = new System.Drawing.Point(316, 3);
-            this.btnModelos.Name = "btnModelos";
-            this.btnModelos.Size = new System.Drawing.Size(61, 42);
-            this.btnModelos.TabIndex = 5;
-            this.btnModelos.UseVisualStyleBackColor = true;
-            this.btnModelos.Click += new System.EventHandler(this.btnModelos_Click);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 49);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1168, 552);
+            this.panel1.TabIndex = 1;
             // 
             // MenuForm
             // 
@@ -163,8 +163,8 @@
         private System.Windows.Forms.Button btnGestion;
         private System.Windows.Forms.Button btnEOQ;
         private System.Windows.Forms.Button btnPlan;
+        private System.Windows.Forms.Button btnModelosP;
         private System.Windows.Forms.Button btnMRP;
-        private System.Windows.Forms.Button btnModelos;
         private System.Windows.Forms.Panel panel1;
     }
 }

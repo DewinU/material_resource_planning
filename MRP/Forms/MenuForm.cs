@@ -39,10 +39,10 @@ namespace MRP.Forms
             toolTip4.SetToolTip(btnPlan, "Planeacion Estrategica");
 
             ToolTip toolTip5 = new ToolTip();
-            toolTip5.SetToolTip(btnMRP, "MRP");
+            toolTip5.SetToolTip(btnModelosP, "Modelos de Pedidos");
 
             ToolTip toolTip6 = new ToolTip();
-            toolTip6.SetToolTip(btnModelos, "Modelos De Pedidos");
+            toolTip6.SetToolTip(btnMRP, "MRP");
 
 
 
@@ -82,12 +82,12 @@ namespace MRP.Forms
 
         private void btnMRP_Click(object sender, EventArgs e)
         {
-            ChangeUserControl(new MRPForm());
+            ChangeUserControl(new ModelosP());
         }
 
         private void btnModelos_Click(object sender, EventArgs e)
         {
-            ChangeUserControl(new ModeloForm());
+            ChangeUserControl(new MRPForm());
         }
 
         private void setMainFrame(int id)
@@ -104,10 +104,10 @@ namespace MRP.Forms
                     ChangeUserControl(new PlanForm());
                     break;
                 case 4:
-                    ChangeUserControl(new MRPForm());
+                    ChangeUserControl(new ModelosP());
                     break;
                 case 5:
-                    ChangeUserControl(new ModeloForm());
+                    ChangeUserControl(new MRPForm());
                     break;
                 default:
                     return;

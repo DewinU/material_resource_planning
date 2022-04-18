@@ -228,7 +228,7 @@
             this.pictureBox5.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox5.Image = global::MRP.Properties.Resources.orden;
+            this.pictureBox5.Image = global::MRP.Properties.Resources.pedido_en_linea;
             this.pictureBox5.Location = new System.Drawing.Point(0, 0);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(188, 184);
@@ -248,7 +248,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(188, 59);
             this.button3.TabIndex = 0;
-            this.button3.Text = "MRP";
+            this.button3.Text = "Modelos de Pedidos";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
@@ -268,7 +268,7 @@
             this.pictureBox6.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox6.Image = global::MRP.Properties.Resources.pedido_en_linea;
+            this.pictureBox6.Image = global::MRP.Properties.Resources.orden;
             this.pictureBox6.Location = new System.Drawing.Point(0, 0);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(188, 184);
@@ -288,7 +288,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(188, 59);
             this.button4.TabIndex = 0;
-            this.button4.Text = "Modelos de Pedidos";
+            this.button4.Text = "MRP";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
