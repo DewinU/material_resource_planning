@@ -17,8 +17,9 @@ namespace MRP.Beans
         public int TiempoEntrega { get; set; }
         public int Stock { get; set; }
         public bool isProcured { get; set; }
-        public float costoMantenimiento { get; set; }
+        public float? costoMantenimiento { get; set; }
         public float costoEnvio { get; set; }
+
 
 
 

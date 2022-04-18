@@ -175,6 +175,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -197,7 +199,7 @@
             this.nombreProd});
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.Location = new System.Drawing.Point(26, 102);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 106);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
