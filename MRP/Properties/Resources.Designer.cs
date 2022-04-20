@@ -223,6 +223,16 @@ namespace MRP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Proveeodr {
+            get {
+                object obj = ResourceManager.GetObject("Proveeodr", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap volver_flecha_izquierda {
             get {
                 object obj = ResourceManager.GetObject("volver_flecha_izquierda", resourceCulture);
