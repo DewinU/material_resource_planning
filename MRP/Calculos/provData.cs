@@ -52,6 +52,8 @@ namespace MRP.Calculos
             return ProvList.Find(p => p.IdProveedor == id);
         }
 
+
+
         public static void populateList()
         {
             Proveedor prov1 = new Proveedor(1, "Empresa x", "888-8888-888", "Cerca de la UCA");
@@ -70,6 +72,12 @@ namespace MRP.Calculos
         {
             return ProvList.Count + 1;
 
+        }
+
+        public static List<String> GetProveedorsNames()
+        {
+            var nombres = from proveedor in ListProveedors select proveedor.Titulo;
+            return nombres.ToList();
         }
 
     }

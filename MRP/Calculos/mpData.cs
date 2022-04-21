@@ -1,46 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 using MRP.Beans;
 
 namespace MRP.Calculos
 {
-    public class mpData
+    public static class mpData
     {
-        public List<MateriaPrima> mpList = new List<MateriaPrima>();
+        public static readonly List<MateriaPrima> mpList = new List<MateriaPrima>();
 
-        public void newMateria(int id, int idProv, string nombre, string UdM, int minStock, float precio, int stock,
-            int tiempoEntrega, bool isProc, float costoMantenimiento, float costoEnvio, float tasaMante)
+        public static List<MateriaPrima> MpLista
         {
-            MateriaPrima mp = new MateriaPrima();
-            mp.IdMP = id;
-            mp.IdProv = idProv;
-            mp.Nombre = nombre;
-            mp.UdM = UdM;
-            mp.MinStock = minStock;
-            mp.PrecioCompra = precio;
-            mp.TiempoEntrega = tiempoEntrega;
-            mp.isProcured = isProc;
-            mp.costoMantenimiento = costoEnvio;
-            mp.costoEnvio = costoEnvio;
-            mp.tasaMantenimiento = tasaMante;
+            get
+            {
+                if (mpList.Count < 1)
+                {
+                    populateList();
+                }
+                return mpList;
+            }
+        }
+
+        public static void newMateria(MateriaPrima mp)
+        {
 
             mpList.Add(mp);
         }
 
-        public void deleteMp(int id)
+        public static void deleteMp(int id)
         {
             mpList.Remove(mpList.FirstOrDefault(prod => prod.IdMP == id));
         }
 
-        public MateriaPrima findById(int id)
+        public static MateriaPrima findById(int id)
         {
             return mpList.FirstOrDefault(prod => prod.IdMP == id);
         }
 
-        public void editMp(int id, string nombre, string UdM, int minStock, float precio, int stock, int tiempoEntrega, bool isProc, float costoMantenimiento, float costoEnvio, float tasaMante)
+        public static void editMp(int id, string nombre, string UdM, int minStock, double precio, int stock, int tiempoEntrega, bool isProc, double costoMantenimiento, double costoEnvio, double tasaMante)
         {
             MateriaPrima mp = mpList.FirstOrDefault(prod => prod.IdMP == id);
             mp.Nombre = nombre;
@@ -57,11 +57,27 @@ namespace MRP.Calculos
 
         }
 
-        public List<MateriaPrima> getMpByProv(int idProv)
+        public static List<MateriaPrima> getMpByProv(int idProv)
         {
             //var mpProv = from prod in mpList where prod.IdProv == idProv select prod;
             var mpProv = mpList.Select(mp => new { V = mp.IdProv = idProv });
             return mpList.ToList();
+        }
+
+        private static void populateList()
+        {
+            MateriaPrima prima = new MateriaPrima(1, 1, "Mesa", "Und", 3, 50, 2, 30, true, 4, 10, 0.10);
+            MateriaPrima prima1 = new MateriaPrima(2, 1, "Pata de Mesa", "Und", 4, 25, 1, 52, false, 5, 5, 0.05);
+            MateriaPrima prima2 = new MateriaPrima(3, "Tabla de Mesa", "Und", 2, 10, 2, 35, false, 5, 8, 0.07);
+
+            mpList.Add(prima);
+            mpList.Add(prima1);
+            mpList.Add(prima2);
+        }
+
+        public static int getLastId()
+        {
+            return mpList.Count + 1;
         }
     }
 }
