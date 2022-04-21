@@ -65,6 +65,7 @@
     <Compile Include="Beans\BOMDetalle.cs" />
     <Compile Include="Beans\MateriaPrima.cs" />
     <Compile Include="Beans\Proveedor.cs" />
+    <Compile Include="Calculos\BOMData.cs" />
     <Compile Include="Calculos\Models.cs" />
     <Compile Include="Calculos\mpData.cs" />
     <Compile Include="Calculos\provData.cs" />
