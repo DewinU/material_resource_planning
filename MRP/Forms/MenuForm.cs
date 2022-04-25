@@ -63,7 +63,7 @@ namespace MRP.Forms
 
         private void btnEOQ_Click(object sender, EventArgs e)
         {
-            ChangeUserControl(new EoqForm());
+            ChangeUserControl(new EoqForm(panel1));
         }
 
         private void ChangeUserControl(UserControl form)
@@ -98,7 +98,7 @@ namespace MRP.Forms
                     ChangeUserControl(new StockForm(panel1));
                     break;
                 case 2:
-                    ChangeUserControl(new EoqForm());
+                    ChangeUserControl(new EoqForm(panel1));
                     break;
                 case 3:
                     ChangeUserControl(new PlanForm());
