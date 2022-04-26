@@ -34,12 +34,10 @@ namespace MRP.Forms
                 demandaTable.Columns.Add("col" + (i + 1), "" + (i + 1));
             }
             demanda_total = new int[periodos];
+            demandaTable.Rows.Add();
         }
 
-        private void materialLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
 
 
@@ -49,18 +47,36 @@ namespace MRP.Forms
             {
                 demanda_total[i] = int.Parse(demandaTable.Rows[0].Cells[i].Value.ToString());
             }
-            //costo_producto = float.Parse(costoProducto.Text);
-            //tasa_mantenimiento = float.Parse(tasaMantenimiento.Text);
-            //costo_pedir = float.Parse(costoPedir.Text);
-            //Models.l4l(modeloTable, 47, 8, demanda_total);
+            costo_producto = float.Parse(costoProducto.Text);
+            tasa_mantenimiento = float.Parse(tasaMantenimiento.Text);
+            costo_pedir = float.Parse(costoPedir.Text);
+
+            
+            switch (models.SelectedIndex)
+            {
+                case 0:
+                    modeloTable.Rows.Clear();
+                    Models.l4l(modeloTable, costo_pedir, periodos, demanda_total);
+                    break;
+                case 1:
+                    modeloTable.Rows.Clear();
+                    Models.eoq(modeloTable, costo_producto, tasa_mantenimiento, costo_pedir, periodos, demanda_total);
+                    break;
+                case 2:
+                    modeloTable.Rows.Clear();
+                    Models.ctm(modeloTable,costo_producto,tasa_mantenimiento,costo_pedir, periodos, demanda_total);
+                    break;
+                case 3:
+                    modeloTable.Rows.Clear();
+                    Models.cum(modeloTable,costo_producto,tasa_mantenimiento,costo_pedir, periodos, demanda_total);
+                    break;
+            }
+            //
             //Models.makeTable(410, modeloTable, 10, float.Parse(0.5.ToString()), 47, 8, demanda_total);
             //Models.ctm(modeloTable, 10, float.Parse(0.5.ToString()), 47, 8, demanda_total);
-            Models.cum(modeloTable, 10, float.Parse(0.5.ToString()), 47, 8, demanda_total);
+            //Models.cum(modeloTable, 10, float.Parse(0.5.ToString()), 47, 8, demanda_total);
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
