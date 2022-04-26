@@ -93,6 +93,12 @@
     <Compile Include="Forms\EoqForm.Designer.cs">
       <DependentUpon>EoqForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\InventoryPForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\InventoryPForm.Designer.cs">
+      <DependentUpon>InventoryPForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EoqForm.resx">
       <DependentUpon>EoqForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InventoryPForm.resx">
+      <DependentUpon>InventoryPForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
