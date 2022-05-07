@@ -64,6 +64,11 @@ namespace MRP.Calculos
             return mpList.ToList();
         }
 
+        public static MateriaPrima getMpByName(string nombre)
+        {
+            return mpList.FirstOrDefault(prod => prod.Nombre.Equals(nombre));
+        }
+
         private static void populateList()
         {
             MateriaPrima prima = new MateriaPrima(1, 1, "Mesa", "Und", 3, 50, 2, 30, true, 4, 10, 0.10);
@@ -79,5 +84,22 @@ namespace MRP.Calculos
         {
             return mpList.Count + 1;
         }
+
+        public static List<String> getIsProcuredMP(bool flag)
+        {
+            if (flag)
+            {
+                var mpProcured = from materia in mpList where materia.isProcured select materia.IdMP + " " + materia.Nombre;
+                return mpProcured.ToList();
+            }
+            else
+            {
+                var mpProcured = from materia in mpList where !materia.isProcured select materia.IdMP + " " + materia.Nombre;
+                return mpProcured.ToList();
+            }
+
+        }
+
+
     }
 }
