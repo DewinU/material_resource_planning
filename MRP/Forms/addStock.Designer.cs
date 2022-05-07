@@ -45,7 +45,6 @@
             this.txtCostoMantenimiento = new MaterialSkin.Controls.MaterialTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnBOM = new MaterialSkin.Controls.MaterialButton();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPrecioCompra = new MaterialSkin.Controls.MaterialTextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -109,6 +108,7 @@
             this.txtID.TabIndex = 12;
             this.txtID.Text = "";
             this.txtID.TrailingIcon = null;
+            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
             // 
             // label1
             // 
@@ -325,26 +325,6 @@
             this.label8.TabIndex = 28;
             this.label8.Text = "Costo de Mantenimiento";
             // 
-            // btnBOM
-            // 
-            this.btnBOM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBOM.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnBOM.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnBOM.Depth = 0;
-            this.btnBOM.HighEmphasis = true;
-            this.btnBOM.Icon = null;
-            this.btnBOM.Location = new System.Drawing.Point(403, 534);
-            this.btnBOM.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnBOM.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnBOM.Name = "btnBOM";
-            this.btnBOM.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnBOM.Size = new System.Drawing.Size(224, 36);
-            this.btnBOM.TabIndex = 35;
-            this.btnBOM.Text = "Crear Lista de Materiales";
-            this.btnBOM.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnBOM.UseAccentColor = false;
-            this.btnBOM.UseVisualStyleBackColor = true;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -501,7 +481,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.btnBOM);
             this.Controls.Add(this.txtMinStock);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtStock);
@@ -557,7 +536,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private MaterialSkin.Controls.MaterialTextBox txtMinStock;
-        private MaterialSkin.Controls.MaterialButton btnBOM;
         private MaterialSkin.Controls.MaterialButton materialButton2;
         private MaterialSkin.Controls.MaterialTextBox txtNombre;
         private System.Windows.Forms.Label label11;

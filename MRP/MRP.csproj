@@ -75,6 +75,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\addBOM.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\addBOM.Designer.cs">
+      <DependentUpon>addBOM.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\addProveedor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -86,6 +92,12 @@
     </Compile>
     <Compile Include="Forms\addStock.Designer.cs">
       <DependentUpon>addStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BOMForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\BOMForm.Designer.cs">
+      <DependentUpon>BOMForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\EoqForm.cs">
       <SubType>UserControl</SubType>
@@ -140,11 +152,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\addBOM.resx">
+      <DependentUpon>addBOM.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\addProveedor.resx">
       <DependentUpon>addProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\addStock.resx">
       <DependentUpon>addStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BOMForm.resx">
+      <DependentUpon>BOMForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EoqForm.resx">
       <DependentUpon>EoqForm.cs</DependentUpon>

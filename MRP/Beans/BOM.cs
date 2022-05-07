@@ -12,5 +12,19 @@ namespace MRP.Beans
         public int IdProducto { get; set; }
         public string nombreBOM { get; set; }
 
+        public BOM(int id, int idProducto, string nombreBOM)
+        {
+            IdBOM = id;
+            IdProducto = idProducto;
+            this.nombreBOM = nombreBOM;
+        }
+
+        public BOM()
+        {
+
+        }
+
     }
+
+
 }

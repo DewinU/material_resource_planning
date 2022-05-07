@@ -12,7 +12,20 @@ namespace MRP.Beans
         public int idBom { get; set; }
         public int idMp { get; set; }
         public int cantidad { get; set; }
-      
+
+        public BOMDetalle(int id, int idb, int idMp, int cantidad)
+        {
+            idBomDetalle = id;
+            idBom = idb;
+            this.idMp = idMp;
+            this.cantidad = cantidad;
+        }
+
+        public BOMDetalle()
+        {
+
+        }
+
 
     }
 }

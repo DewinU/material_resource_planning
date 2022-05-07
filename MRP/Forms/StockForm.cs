@@ -45,7 +45,7 @@ namespace MRP.Forms
 
         private void materialButton2_Click(object sender, EventArgs e)
         {
-             ProvForm prov = new ProvForm(panelCont);
+            ProvForm prov = new ProvForm(panelCont);
             panelCont.Controls.Clear();
             prov.Dock = DockStyle.Fill;
             panelCont.Controls.Add(prov);
@@ -138,6 +138,19 @@ namespace MRP.Forms
             }
 
             return dt;
+        }
+
+        private void materialButton3_Click(object sender, EventArgs e)
+        {
+            BOMForm prov = new BOMForm(panelCont);
+            panelCont.Controls.Clear();
+            prov.Dock = DockStyle.Fill;
+            panelCont.Controls.Add(prov);
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

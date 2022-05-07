@@ -75,21 +75,14 @@ namespace MRP.Forms
         private void addStock_Load(object sender, EventArgs e)
         {
             txtID.Text = mpData.getLastId().ToString();
-            btnBOM.Hide();
+
             txtProv.DataSource = provData.GetProveedorsNames();
 
         }
 
         private void txtisProcured_CheckedChanged(object sender, EventArgs e)
         {
-            if (txtisProcured.Checked)
-            {
-                btnBOM.Show();
-            }
-            else
-            {
-                btnBOM.Hide();
-            }
+
         }
 
         private void volver()
@@ -122,6 +115,11 @@ namespace MRP.Forms
         {
             mpData.editMp(int.Parse(txtID.Text), txtNombre.Text, txtUdm.Text, int.Parse(txtMinStock.Text), double.Parse(txtPrecioCompra.Text), int.Parse(txtStock.Text),
                 int.Parse(txtTiempoEntrega.Text), txtisProcured.Checked, double.Parse(txtCostoMantenimiento.Text), double.Parse(txtCostoEnvio.Text), double.Parse(txtTasaMantenimiento.Text));
+        }
+
+        private void txtID_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
