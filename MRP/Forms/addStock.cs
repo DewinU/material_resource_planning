@@ -39,16 +39,24 @@ namespace MRP.Forms
 
         private void materialButton2_Click(object sender, EventArgs e)
         {
-            if (flag)
+            if (!validateCampos())
             {
-                editMp();
+                if (flag)
+                {
+                    editMp();
+                }
+                else
+                {
+                    newMp();
+                }
+
+                volver();
             }
             else
             {
-                newMp();
+                MessageBox.Show("Por favor rellene todos los campos", "Error de ingreso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            volver();
         }
 
         private void newMp()
@@ -120,6 +128,15 @@ namespace MRP.Forms
         private void txtID_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private bool validateCampos()
+        {
+            bool isNullOrWhiteSpace = String.IsNullOrWhiteSpace(txtNombre.Text) || String.IsNullOrWhiteSpace(txtStock.Text) || String.IsNullOrWhiteSpace(txtUdm.Text) || String.IsNullOrWhiteSpace(txtMinStock.Text)
+                        || String.IsNullOrWhiteSpace(txtPrecioCompra.Text) || String.IsNullOrWhiteSpace(txtTiempoEntrega.Text) || String.IsNullOrWhiteSpace(txtCostoEnvio.Text)
+                        || String.IsNullOrWhiteSpace(txtCostoMantenimiento.Text) || String.IsNullOrWhiteSpace(txtTasaMantenimiento.Text);
+
+            return isNullOrWhiteSpace;
         }
     }
 }

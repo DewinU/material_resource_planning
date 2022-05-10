@@ -46,16 +46,25 @@ namespace MRP.Forms
 
         private void materialButton2_Click(object sender, EventArgs e)
         {
-            if (flag)
+
+            if (!validateCampos())
             {
-                editProveedor();
+                if (flag)
+                {
+                    editProveedor();
+                }
+                else
+                {
+                    newProveedor();
+                }
+
+                volver();
             }
             else
             {
-                newProveedor();
+                MessageBox.Show("Por favor rellene todos los campos", "Error de igreso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            volver();
 
         }
 
@@ -97,6 +106,14 @@ namespace MRP.Forms
         private void editProveedor()
         {
             provData.editProveedor(int.Parse(txtId.Text), txtNombre.Text, txtTelefono.Text, txtDireccion.Text);
+        }
+
+        private bool validateCampos()
+        {
+            bool isVal = String.IsNullOrWhiteSpace(txtNombre.Text) || String.IsNullOrWhiteSpace(txtTelefono.Text) ||
+                         String.IsNullOrWhiteSpace(txtDireccion.Text);
+
+            return isVal;
         }
     }
 }

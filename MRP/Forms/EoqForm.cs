@@ -29,7 +29,7 @@ namespace MRP.Forms
             txtMantenimiento.Text = "2";
             txtNivelServicio.Text = "95";
             txtPedido.Text = "20";
-            txtStdev.Text =  "10";
+            txtStdev.Text = "10";
             numPlazo.Value = 4;
 
         }
@@ -57,19 +57,20 @@ namespace MRP.Forms
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(txtCostoUnitario.Text) || string.IsNullOrEmpty(txtDemanda.Text) || string.IsNullOrEmpty(txtMantenimiento.Text) || string.IsNullOrEmpty(txtNivelServicio.Text)
-                    || string.IsNullOrEmpty(txtPedido.Text) || string.IsNullOrEmpty(txtStdev.Text) || (numPlazo.Value < 0)) {
+            if (string.IsNullOrEmpty(txtCostoUnitario.Text) || string.IsNullOrEmpty(txtDemanda.Text) || string.IsNullOrEmpty(txtMantenimiento.Text) || string.IsNullOrEmpty(txtNivelServicio.Text)
+                    || string.IsNullOrEmpty(txtPedido.Text) || string.IsNullOrEmpty(txtStdev.Text) || (numPlazo.Value < 0))
+            {
                 MessageBox.Show("Todos los campos son obligatorios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if(txtMantenimiento.Text == "0")
+            if (txtMantenimiento.Text == "0")
             {
                 MessageBox.Show("El costo de mantenimiento no debe ser de 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return ;
+                return;
             }
             int eoq = calcModelQ(int.Parse(txtDemanda.Text), float.Parse(txtPedido.Text), int.Parse(txtDiasLaborales.Text), float.Parse(txtMantenimiento.Text));
-            double zScore = F(double.Parse(txtNivelServicio.Text)/100);
+            double zScore = F(double.Parse(txtNivelServicio.Text) / 100);
             int securityStock = calcSecurityStock(int.Parse(txtStdev.Text), zScore);
             int rop = calcRop(int.Parse(txtDemanda.Text), int.Parse(numPlazo.Value.ToString()), securityStock);
             double costoTotal = calcCosto(int.Parse(txtDemanda.Text), double.Parse(txtPedido.Text), double.Parse(txtMantenimiento.Text), eoq, double.Parse(txtCostoUnitario.Text));
@@ -77,9 +78,9 @@ namespace MRP.Forms
                 $"Vigilando que cuando las existencias sean menores o iguales a {rop.ToString("N0")} unidades se realice un nuevo pedido. El inventario de seguridad con este sistema es de {securityStock.ToString("N0")} unidades y tiene un costo de {costoTotal.ToString("C3")} unidades monetarias.";
         }
 
-        private int calcModelQ(int demanda, float costoPedido, int diasLaborales, float costoMantenimiento )
+        private int calcModelQ(int demanda, float costoPedido, int diasLaborales, float costoMantenimiento)
         {
-            return (int) Math.Ceiling(Math.Sqrt((2 * demanda * diasLaborales * costoPedido) / costoMantenimiento));
+            return (int)Math.Ceiling(Math.Sqrt((2 * demanda * diasLaborales * costoPedido) / costoMantenimiento));
         }
 
         private int calcRop(int demanda, int plazo, int securityStock)
@@ -92,8 +93,8 @@ namespace MRP.Forms
             var stdevPeriodo = stdev * Math.Sqrt((double)numPlazo.Value);
             Console.WriteLine(stdev);
             Console.WriteLine(numPlazo.Value); ;
-            return (int) Math.Ceiling(stdevPeriodo * zScore);
-        } 
+            return (int)Math.Ceiling(stdevPeriodo * zScore);
+        }
 
         private double calcCosto(int demanda, double pedido, double mantenimiento, int eoq, double costo)
         {
