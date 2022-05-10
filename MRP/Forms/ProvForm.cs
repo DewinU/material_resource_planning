@@ -170,5 +170,11 @@ namespace MRP.Forms
         {
 
         }
+
+        private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Proveedor currentObject = (Proveedor)dataGridView1.CurrentRow.DataBoundItem;
+            listBox1.DataSource = mpData.getMpByProv(currentObject.IdProveedor);
+        }
     }
 }

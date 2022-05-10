@@ -109,7 +109,15 @@ namespace MRP.Forms
 
         private void materialTextBox1_TextChanged(object sender, EventArgs e)
         {
+            var bs = new BindingSource();
+            bs.DataSource = mpData.mpList;
+            dataGridView1.DataSource = bs;
+            DataTable dt = GetDataTableFromDGV(dataGridView1);
 
+            DataView dv = dt.DefaultView;
+
+            dv.RowFilter = string.Format("Convert(IdMP,'System.String') like '%{0}%' or Nombre like '%{0}%' or Convert(Stock,'System.String') like '%{0}%' or Convert(TiempoEntrega,'System.String') like '%{0}%'", materialTextBox1.Text);
+            dataGridView1.DataSource = dv.ToTable();
         }
 
         private DataTable GetDataTableFromDGV(DataGridView dgv)

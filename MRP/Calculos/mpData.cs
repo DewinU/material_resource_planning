@@ -57,11 +57,13 @@ namespace MRP.Calculos
 
         }
 
-        public static List<MateriaPrima> getMpByProv(int idProv)
+        public static List<String> getMpByProv(int idProv)
         {
-            //var mpProv = from prod in mpList where prod.IdProv == idProv select prod;
-            var mpProv = mpList.Select(mp => new { V = mp.IdProv = idProv });
-            return mpList.ToList();
+            var mpProv = from prod in mpList where prod.IdProv == idProv select prod.Nombre;
+
+            return mpProv.ToList();
+
+
         }
 
         public static MateriaPrima getMpByName(string nombre)
@@ -100,6 +102,19 @@ namespace MRP.Calculos
 
         }
 
+        public static List<String> getMPNames()
+        {
+            var mpProcured = from materia in MpLista select materia.Nombre;
+            foreach (var a in mpProcured)
+            {
+                Console.WriteLine(a);
+            }
+            return mpProcured.ToList();
 
+
+        }
     }
+
+
+
 }
