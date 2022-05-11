@@ -34,7 +34,6 @@
             this.btnEOQ = new System.Windows.Forms.Button();
             this.btnPlan = new System.Windows.Forms.Button();
             this.btnModelosP = new System.Windows.Forms.Button();
-            this.btnMRP = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -47,7 +46,6 @@
             this.flowLayoutPanel1.Controls.Add(this.btnEOQ);
             this.flowLayoutPanel1.Controls.Add(this.btnPlan);
             this.flowLayoutPanel1.Controls.Add(this.btnModelosP);
-            this.flowLayoutPanel1.Controls.Add(this.btnMRP);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -119,19 +117,6 @@
             this.btnModelosP.UseVisualStyleBackColor = true;
             this.btnModelosP.Click += new System.EventHandler(this.btnMRP_Click);
             // 
-            // btnMRP
-            // 
-            this.btnMRP.BackgroundImage = global::MRP.Properties.Resources.entrega_de_pedidos;
-            this.btnMRP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnMRP.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnMRP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMRP.Location = new System.Drawing.Point(316, 3);
-            this.btnMRP.Name = "btnMRP";
-            this.btnMRP.Size = new System.Drawing.Size(61, 42);
-            this.btnMRP.TabIndex = 5;
-            this.btnMRP.UseVisualStyleBackColor = true;
-            this.btnMRP.Click += new System.EventHandler(this.btnModelos_Click);
-            // 
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -164,7 +149,6 @@
         private System.Windows.Forms.Button btnEOQ;
         private System.Windows.Forms.Button btnPlan;
         private System.Windows.Forms.Button btnModelosP;
-        private System.Windows.Forms.Button btnMRP;
         private System.Windows.Forms.Panel panel1;
     }
 }

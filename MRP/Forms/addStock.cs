@@ -55,6 +55,7 @@ namespace MRP.Forms
             else
             {
                 MessageBox.Show("Por favor rellene todos los campos", "Error de ingreso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
         }

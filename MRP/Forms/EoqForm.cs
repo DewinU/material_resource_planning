@@ -57,25 +57,35 @@ namespace MRP.Forms
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCostoUnitario.Text) || string.IsNullOrEmpty(txtDemanda.Text) || string.IsNullOrEmpty(txtMantenimiento.Text) || string.IsNullOrEmpty(txtNivelServicio.Text)
-                    || string.IsNullOrEmpty(txtPedido.Text) || string.IsNullOrEmpty(txtStdev.Text) || (numPlazo.Value < 0))
+
+            try
             {
-                MessageBox.Show("Todos los campos son obligatorios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (string.IsNullOrEmpty(txtCostoUnitario.Text) || string.IsNullOrEmpty(txtDemanda.Text) || string.IsNullOrEmpty(txtMantenimiento.Text) || string.IsNullOrEmpty(txtNivelServicio.Text)
+                    || string.IsNullOrEmpty(txtPedido.Text) || string.IsNullOrEmpty(txtStdev.Text) || (numPlazo.Value < 0) || String.IsNullOrWhiteSpace(txtDiasLaborales.Text))
+                {
+                    MessageBox.Show("Todos los campos son obligatorios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (txtMantenimiento.Text == "0")
+                {
+                    MessageBox.Show("El costo de mantenimiento no debe ser de 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                int eoq = calcModelQ(int.Parse(txtDemanda.Text), float.Parse(txtPedido.Text), int.Parse(txtDiasLaborales.Text), float.Parse(txtMantenimiento.Text));
+                double zScore = F(double.Parse(txtNivelServicio.Text) / 100);
+                int securityStock = calcSecurityStock(int.Parse(txtStdev.Text), zScore);
+                int rop = calcRop(int.Parse(txtDemanda.Text), int.Parse(numPlazo.Value.ToString()), securityStock);
+                double costoTotal = calcCosto(int.Parse(txtDemanda.Text), double.Parse(txtPedido.Text), double.Parse(txtMantenimiento.Text), eoq, double.Parse(txtCostoUnitario.Text));
+                solRichTextBox.Text = $"Si se establece un sistema de administración de inventario de revisión continua se deben hacer pedidos de {eoq.ToString("N0")} unidades. Además se debe estar revisando continuamente las existencias del producto. " +
+                                      $"Vigilando que cuando las existencias sean menores o iguales a {rop.ToString("N0")} unidades se realice un nuevo pedido. El inventario de seguridad con este sistema es de {securityStock.ToString("N0")} unidades y tiene un costo de {costoTotal.ToString("C3")} unidades monetarias.";
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Formato no validos", "Error de ingreso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (txtMantenimiento.Text == "0")
-            {
-                MessageBox.Show("El costo de mantenimiento no debe ser de 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            int eoq = calcModelQ(int.Parse(txtDemanda.Text), float.Parse(txtPedido.Text), int.Parse(txtDiasLaborales.Text), float.Parse(txtMantenimiento.Text));
-            double zScore = F(double.Parse(txtNivelServicio.Text) / 100);
-            int securityStock = calcSecurityStock(int.Parse(txtStdev.Text), zScore);
-            int rop = calcRop(int.Parse(txtDemanda.Text), int.Parse(numPlazo.Value.ToString()), securityStock);
-            double costoTotal = calcCosto(int.Parse(txtDemanda.Text), double.Parse(txtPedido.Text), double.Parse(txtMantenimiento.Text), eoq, double.Parse(txtCostoUnitario.Text));
-            solRichTextBox.Text = $"Si se establece un sistema de administración de inventario de revisión continua se deben hacer pedidos de {eoq.ToString("N0")} unidades. Además se debe estar revisando continuamente las existencias del producto. " +
-                $"Vigilando que cuando las existencias sean menores o iguales a {rop.ToString("N0")} unidades se realice un nuevo pedido. El inventario de seguridad con este sistema es de {securityStock.ToString("N0")} unidades y tiene un costo de {costoTotal.ToString("C3")} unidades monetarias.";
         }
 
         private int calcModelQ(int demanda, float costoPedido, int diasLaborales, float costoMantenimiento)
