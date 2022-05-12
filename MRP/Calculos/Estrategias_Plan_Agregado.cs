@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,13 @@ namespace MRP.Calculos
 {
     public class Estrategias_Plan_Agregado
     {
+        public DataTable DT_Estrategias;
+
+        public static DataTable DT_Persecucion;
+        public static DataTable DT_F_Nivelada;
+        public static DataTable DT_OutSourcing;
+
+
         public static int[] make_ss(DataGridView ss, int periodos, float tasa_ss, int[] demandas, int inv_ini)
         {
             //hacer tabla ss
@@ -49,6 +57,26 @@ namespace MRP.Calculos
             }
             return lista_req_prod;
         }
+
+        public static DataTable DGV_a_DT(DataGridView dg)
+        {
+            DataTable ExportDataTable = new DataTable();
+            foreach (DataGridViewColumn col in dg.Columns)
+            {
+                ExportDataTable.Columns.Add(col.Name);
+            }
+            foreach (DataGridViewRow row in dg.Rows)
+            {
+                DataRow dRow = ExportDataTable.NewRow();
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    dRow[cell.ColumnIndex] = cell.Value;
+                }
+                ExportDataTable.Rows.Add(dRow);
+            }
+            return ExportDataTable;
+        }
+
         public static void persecucion(DataGridView ss, DataGridView main, Label lbl_total, float c_contratacion, float c_despido, float c_hrs_n, float hrs_diarias, float tasa_ss, int inv_ini, int periodos, int[] demandas, int[] dias, float t_elab)
         {
             main.Rows.Clear();
@@ -136,6 +164,10 @@ namespace MRP.Calculos
 
             lbl_total.Text ="Costo Total Estrategia: " + c_total_estrategia.ToString();
 
+            DT_Persecucion.Rows.Clear();
+            DT_Persecucion.Columns.Clear();
+
+            DT_Persecucion = DGV_a_DT(main);
         }
         public static void fuerza_nivelada(DataGridView ss, DataGridView main, Label lbl_total, float c_hrs_n, float hrs_diarias, float tasa_ss, int inv_ini, int periodos, int[] demandas, int[] dias, float t_elab, float c_faltante, float h)
         {
@@ -220,6 +252,11 @@ namespace MRP.Calculos
                 inv_ini = int.Parse(main.Rows[5].Cells[i].Value.ToString());
             }
             lbl_total.Text = "Costo Total Estrategia: " + c_total_estrategia.ToString();
+
+            DT_F_Nivelada.Rows.Clear();
+            DT_F_Nivelada.Columns.Clear();
+
+            DT_F_Nivelada = DGV_a_DT(main);
         }
         public static void outsourcing(DataGridView ss, DataGridView main, Label lbl_total, float c_hrs_n, float hrs_diarias, float tasa_ss, int inv_ini, int periodos, int[] demandas, int[] dias, float t_elab,float c_outsourcing)
         {
@@ -269,6 +306,38 @@ namespace MRP.Calculos
                 c_total_estrategia += float.Parse(main.Rows[7].Cells[i].Value.ToString());
             }
             lbl_total.Text = "Costo Total Estrategia: " + c_total_estrategia.ToString();
+
+            DT_OutSourcing.Rows.Clear();
+            DT_OutSourcing.Columns.Clear();
+
+            DT_OutSourcing = DGV_a_DT(main);
         }
+
+        public static void totales_Estrategias(DataGridView ss, DataGridView main, Label lbl_total, float c_hrs_n, float hrs_diarias, float tasa_ss, int inv_ini, int periodos, int[] demandas, int[] dias, float t_elab, float c_outsourcing)
+        {
+            main.Rows.Clear();
+            main.Columns.Clear();
+            float c_total_estrategia = 0;
+            int[] req_list = new int[periodos];
+            req_list = make_ss(ss, periodos, tasa_ss, demandas, inv_ini);
+
+            
+        }
+
+
+        private static void PrintValues(DataTable table, string label)
+        {
+            // Display the values in the supplied DataTable:
+            Console.WriteLine(label);
+            foreach (DataRow row in table.Rows)
+            {
+                foreach (DataColumn col in table.Columns)
+                {
+                    Console.Write("\t " + row[col].ToString());
+                }
+                Console.WriteLine();
+            }
+        }
+
     }
 }

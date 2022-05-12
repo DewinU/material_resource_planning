@@ -25,7 +25,6 @@ namespace MRP.Forms
         public float c_contratar;
         public float c_despido;
         public float c_hrs_n;
-        public float c_hrs_e;
         public int f_lab;
         public float tasa_ss;
         public int inv_ini;
@@ -75,6 +74,32 @@ namespace MRP.Forms
         {
             Console.WriteLine(CBO_Estrategias.SelectedIndex);
 
+            switch (CBO_Estrategias.SelectedIndex)
+            {
+                case 0:
+                    TXT_C_Faltante.Enabled = false;
+                    TXT_Outs.Enabled = false;
+                    TXT_H.Enabled = false;
+                    break;  
+                case 1:
+                    TXT_Contratar.Enabled = false;
+                    TXT_Despedir.Enabled = false;
+                    break;
+                case 2:
+                    TXT_C_Faltante.Enabled = false;
+                    TXT_Outs.Enabled = false;
+                    TXT_H.Enabled = false;
+                    TXT_Contratar.Enabled = false;
+                    TXT_Despedir.Enabled = false;
+                    break;
+                default:
+                    TXT_C_Faltante.Enabled = true;
+                    TXT_Outs.Enabled = true;
+                    TXT_H.Enabled = true;
+                    TXT_Contratar.Enabled = true;
+                    TXT_Despedir.Enabled = true;
+                    break;
+            }
         }
 
         private void BTN_Limpiar_Click(object sender, EventArgs e)
@@ -84,10 +109,9 @@ namespace MRP.Forms
             {
                 TXT_Contratar.Text = "";
                 TXT_Costo.Text = "";
-                TXT_C_Hrs_E.Text = "";
                 TXT_C_Hr_N.Text = "";
                 TXT_Despedir.Text = "";
-                TXT_Faltante.Text = "";
+                TXT_C_Faltante.Text = "";
                 TXT_F_Lab.Text = "";
                 TXT_H.Text = "";
                 TXT_Hrs_Lab.Text = "";
@@ -122,9 +146,8 @@ namespace MRP.Forms
             c_contratar = float.Parse(TXT_Contratar.Text);
             costo = float.Parse(TXT_Costo.Text);
             c_hrs_n = float.Parse(TXT_C_Hr_N.Text);
-            c_hrs_e = float.Parse(TXT_C_Hrs_E.Text);
             c_despido = float.Parse(TXT_Despedir.Text);
-            c_faltante = float.Parse(TXT_Faltante.Text);
+            c_faltante = float.Parse(TXT_C_Faltante.Text);
             f_lab = int.Parse(TXT_F_Lab.Text);
             H = float.Parse(TXT_H.Text);
             hrs_diarias = int.Parse(TXT_Hrs_Lab.Text);
@@ -133,8 +156,6 @@ namespace MRP.Forms
             tasa_ss = float.Parse(TXT_tasa_SS.Text);
             t_elab = float.Parse(TXT_T_Elab.Text);
 
-            
-            
 
             for (int i = 0; i < periodos; i++)
             {
@@ -154,7 +175,7 @@ namespace MRP.Forms
                 case 2:
                     Estrategias_Plan_Agregado.outsourcing(DGV_SS, DGV_Plan_Agregado, LBL_Total, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, c_outsourcing);
                     break;
-                default:
+                case 3:
 
                     break;
             }

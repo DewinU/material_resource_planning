@@ -35,7 +35,7 @@
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.TXT_H = new System.Windows.Forms.TextBox();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.TXT_Faltante = new System.Windows.Forms.TextBox();
+            this.TXT_C_Faltante = new System.Windows.Forms.TextBox();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.TXT_Outs = new System.Windows.Forms.TextBox();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
@@ -45,8 +45,6 @@
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.TXT_C_Hr_N = new System.Windows.Forms.TextBox();
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
-            this.TXT_C_Hrs_E = new System.Windows.Forms.TextBox();
-            this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
@@ -64,9 +62,11 @@
             this.materialLabel14 = new MaterialSkin.Controls.MaterialLabel();
             this.TXT_T_Elab = new System.Windows.Forms.TextBox();
             this.LBL_Total = new MaterialSkin.Controls.MaterialLabel();
+            this.DGV_Totales = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Plan_Agregado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Demanda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_SS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Totales)).BeginInit();
             this.SuspendLayout();
             // 
             // materialLabel1
@@ -74,7 +74,7 @@
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(622, 12);
+            this.materialLabel1.Location = new System.Drawing.Point(648, 10);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(67, 19);
@@ -83,7 +83,7 @@
             // 
             // TXT_Periodos
             // 
-            this.TXT_Periodos.Location = new System.Drawing.Point(695, 11);
+            this.TXT_Periodos.Location = new System.Drawing.Point(721, 9);
             this.TXT_Periodos.Name = "TXT_Periodos";
             this.TXT_Periodos.Size = new System.Drawing.Size(100, 20);
             this.TXT_Periodos.TabIndex = 1;
@@ -101,9 +101,9 @@
             // 
             this.DGV_Demanda.BackgroundColor = System.Drawing.Color.White;
             this.DGV_Demanda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_Demanda.Location = new System.Drawing.Point(625, 50);
+            this.DGV_Demanda.Location = new System.Drawing.Point(651, 49);
             this.DGV_Demanda.Name = "DGV_Demanda";
-            this.DGV_Demanda.Size = new System.Drawing.Size(514, 82);
+            this.DGV_Demanda.Size = new System.Drawing.Size(514, 97);
             this.DGV_Demanda.TabIndex = 3;
             // 
             // materialLabel2
@@ -137,12 +137,12 @@
             this.materialLabel3.TabIndex = 6;
             this.materialLabel3.Text = "C. Mantenimiento:";
             // 
-            // TXT_Faltante
+            // TXT_C_Faltante
             // 
-            this.TXT_Faltante.Location = new System.Drawing.Point(155, 81);
-            this.TXT_Faltante.Name = "TXT_Faltante";
-            this.TXT_Faltante.Size = new System.Drawing.Size(118, 20);
-            this.TXT_Faltante.TabIndex = 9;
+            this.TXT_C_Faltante.Location = new System.Drawing.Point(155, 81);
+            this.TXT_C_Faltante.Name = "TXT_C_Faltante";
+            this.TXT_C_Faltante.Size = new System.Drawing.Size(118, 20);
+            this.TXT_C_Faltante.TabIndex = 9;
             // 
             // materialLabel4
             // 
@@ -232,31 +232,12 @@
             this.materialLabel8.TabIndex = 16;
             this.materialLabel8.Text = "C. Despido:";
             // 
-            // TXT_C_Hrs_E
-            // 
-            this.TXT_C_Hrs_E.Location = new System.Drawing.Point(406, 49);
-            this.TXT_C_Hrs_E.Name = "TXT_C_Hrs_E";
-            this.TXT_C_Hrs_E.Size = new System.Drawing.Size(129, 20);
-            this.TXT_C_Hrs_E.TabIndex = 19;
-            // 
-            // materialLabel9
-            // 
-            this.materialLabel9.AutoSize = true;
-            this.materialLabel9.Depth = 0;
-            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel9.Location = new System.Drawing.Point(313, 50);
-            this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel9.Name = "materialLabel9";
-            this.materialLabel9.Size = new System.Drawing.Size(87, 19);
-            this.materialLabel9.TabIndex = 18;
-            this.materialLabel9.Text = "C. Hrs Extra:";
-            // 
             // materialLabel10
             // 
             this.materialLabel10.AutoSize = true;
             this.materialLabel10.Depth = 0;
             this.materialLabel10.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel10.Location = new System.Drawing.Point(317, 82);
+            this.materialLabel10.Location = new System.Drawing.Point(316, 50);
             this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel10.Name = "materialLabel10";
             this.materialLabel10.Size = new System.Drawing.Size(84, 19);
@@ -268,7 +249,7 @@
             this.materialLabel11.AutoSize = true;
             this.materialLabel11.Depth = 0;
             this.materialLabel11.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel11.Location = new System.Drawing.Point(353, 113);
+            this.materialLabel11.Location = new System.Drawing.Point(352, 81);
             this.materialLabel11.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel11.Name = "materialLabel11";
             this.materialLabel11.Size = new System.Drawing.Size(47, 19);
@@ -280,7 +261,7 @@
             this.materialLabel12.AutoSize = true;
             this.materialLabel12.Depth = 0;
             this.materialLabel12.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel12.Location = new System.Drawing.Point(286, 142);
+            this.materialLabel12.Location = new System.Drawing.Point(285, 110);
             this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel12.Name = "materialLabel12";
             this.materialLabel12.Size = new System.Drawing.Size(114, 19);
@@ -294,7 +275,7 @@
             this.BTN_Aceptar.Depth = 0;
             this.BTN_Aceptar.HighEmphasis = true;
             this.BTN_Aceptar.Icon = null;
-            this.BTN_Aceptar.Location = new System.Drawing.Point(802, 5);
+            this.BTN_Aceptar.Location = new System.Drawing.Point(828, 3);
             this.BTN_Aceptar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.BTN_Aceptar.MouseState = MaterialSkin.MouseState.HOVER;
             this.BTN_Aceptar.Name = "BTN_Aceptar";
@@ -314,7 +295,7 @@
             this.BTN_Calcular.Depth = 0;
             this.BTN_Calcular.HighEmphasis = true;
             this.BTN_Calcular.Icon = null;
-            this.BTN_Calcular.Location = new System.Drawing.Point(338, 247);
+            this.BTN_Calcular.Location = new System.Drawing.Point(357, 230);
             this.BTN_Calcular.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.BTN_Calcular.MouseState = MaterialSkin.MouseState.HOVER;
             this.BTN_Calcular.Name = "BTN_Calcular";
@@ -334,7 +315,7 @@
             this.BTN_Limpiar.Depth = 0;
             this.BTN_Limpiar.HighEmphasis = true;
             this.BTN_Limpiar.Icon = null;
-            this.BTN_Limpiar.Location = new System.Drawing.Point(441, 247);
+            this.BTN_Limpiar.Location = new System.Drawing.Point(460, 230);
             this.BTN_Limpiar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.BTN_Limpiar.MouseState = MaterialSkin.MouseState.HOVER;
             this.BTN_Limpiar.Name = "BTN_Limpiar";
@@ -364,8 +345,9 @@
             this.CBO_Estrategias.Items.AddRange(new object[] {
             "Persecucion",
             "Fuerza Nivelada",
-            "OutSourcing"});
-            this.CBO_Estrategias.Location = new System.Drawing.Point(56, 234);
+            "OutSourcing",
+            "Todas las Estrategias"});
+            this.CBO_Estrategias.Location = new System.Drawing.Point(56, 217);
             this.CBO_Estrategias.MaxDropDownItems = 4;
             this.CBO_Estrategias.MouseState = MaterialSkin.MouseState.OUT;
             this.CBO_Estrategias.Name = "CBO_Estrategias";
@@ -386,7 +368,7 @@
             this.materialLabel13.AutoSize = true;
             this.materialLabel13.Depth = 0;
             this.materialLabel13.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel13.Location = new System.Drawing.Point(335, 170);
+            this.materialLabel13.Location = new System.Drawing.Point(334, 138);
             this.materialLabel13.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel13.Name = "materialLabel13";
             this.materialLabel13.Size = new System.Drawing.Size(65, 19);
@@ -395,7 +377,7 @@
             // 
             // TXT_tasa_SS
             // 
-            this.TXT_tasa_SS.Location = new System.Drawing.Point(406, 169);
+            this.TXT_tasa_SS.Location = new System.Drawing.Point(405, 137);
             this.TXT_tasa_SS.Mask = "9.99";
             this.TXT_tasa_SS.Name = "TXT_tasa_SS";
             this.TXT_tasa_SS.Size = new System.Drawing.Size(47, 20);
@@ -403,7 +385,7 @@
             // 
             // TXT_Hrs_Lab
             // 
-            this.TXT_Hrs_Lab.Location = new System.Drawing.Point(406, 143);
+            this.TXT_Hrs_Lab.Location = new System.Drawing.Point(405, 111);
             this.TXT_Hrs_Lab.Mask = "00000";
             this.TXT_Hrs_Lab.Name = "TXT_Hrs_Lab";
             this.TXT_Hrs_Lab.Size = new System.Drawing.Size(129, 20);
@@ -412,7 +394,7 @@
             // 
             // TXT_Inv_Ini
             // 
-            this.TXT_Inv_Ini.Location = new System.Drawing.Point(406, 112);
+            this.TXT_Inv_Ini.Location = new System.Drawing.Point(405, 80);
             this.TXT_Inv_Ini.Mask = "00000";
             this.TXT_Inv_Ini.Name = "TXT_Inv_Ini";
             this.TXT_Inv_Ini.Size = new System.Drawing.Size(129, 20);
@@ -421,7 +403,7 @@
             // 
             // TXT_F_Lab
             // 
-            this.TXT_F_Lab.Location = new System.Drawing.Point(407, 80);
+            this.TXT_F_Lab.Location = new System.Drawing.Point(406, 48);
             this.TXT_F_Lab.Mask = "00000";
             this.TXT_F_Lab.Name = "TXT_F_Lab";
             this.TXT_F_Lab.Size = new System.Drawing.Size(128, 20);
@@ -432,9 +414,9 @@
             // 
             this.DGV_SS.BackgroundColor = System.Drawing.Color.White;
             this.DGV_SS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_SS.Location = new System.Drawing.Point(625, 138);
+            this.DGV_SS.Location = new System.Drawing.Point(651, 152);
             this.DGV_SS.Name = "DGV_SS";
-            this.DGV_SS.Size = new System.Drawing.Size(514, 119);
+            this.DGV_SS.Size = new System.Drawing.Size(514, 130);
             this.DGV_SS.TabIndex = 36;
             // 
             // materialLabel14
@@ -442,7 +424,7 @@
             this.materialLabel14.AutoSize = true;
             this.materialLabel14.Depth = 0;
             this.materialLabel14.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel14.Location = new System.Drawing.Point(230, 202);
+            this.materialLabel14.Location = new System.Drawing.Point(346, 170);
             this.materialLabel14.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel14.Name = "materialLabel14";
             this.materialLabel14.Size = new System.Drawing.Size(54, 19);
@@ -451,9 +433,9 @@
             // 
             // TXT_T_Elab
             // 
-            this.TXT_T_Elab.Location = new System.Drawing.Point(291, 202);
+            this.TXT_T_Elab.Location = new System.Drawing.Point(405, 169);
             this.TXT_T_Elab.Name = "TXT_T_Elab";
-            this.TXT_T_Elab.Size = new System.Drawing.Size(100, 20);
+            this.TXT_T_Elab.Size = new System.Drawing.Size(47, 20);
             this.TXT_T_Elab.TabIndex = 38;
             // 
             // LBL_Total
@@ -461,18 +443,28 @@
             this.LBL_Total.AutoSize = true;
             this.LBL_Total.Depth = 0;
             this.LBL_Total.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LBL_Total.Location = new System.Drawing.Point(353, 508);
+            this.LBL_Total.Location = new System.Drawing.Point(662, 508);
             this.LBL_Total.MouseState = MaterialSkin.MouseState.HOVER;
             this.LBL_Total.Name = "LBL_Total";
             this.LBL_Total.Size = new System.Drawing.Size(53, 19);
             this.LBL_Total.TabIndex = 39;
             this.LBL_Total.Text = "asasda";
             // 
+            // DGV_Totales
+            // 
+            this.DGV_Totales.BackgroundColor = System.Drawing.Color.White;
+            this.DGV_Totales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Totales.Location = new System.Drawing.Point(964, 289);
+            this.DGV_Totales.Name = "DGV_Totales";
+            this.DGV_Totales.Size = new System.Drawing.Size(201, 216);
+            this.DGV_Totales.TabIndex = 40;
+            // 
             // PlanForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.Controls.Add(this.DGV_Totales);
             this.Controls.Add(this.LBL_Total);
             this.Controls.Add(this.TXT_T_Elab);
             this.Controls.Add(this.materialLabel14);
@@ -489,8 +481,6 @@
             this.Controls.Add(this.materialLabel12);
             this.Controls.Add(this.materialLabel11);
             this.Controls.Add(this.materialLabel10);
-            this.Controls.Add(this.TXT_C_Hrs_E);
-            this.Controls.Add(this.materialLabel9);
             this.Controls.Add(this.TXT_C_Hr_N);
             this.Controls.Add(this.materialLabel8);
             this.Controls.Add(this.TXT_Despedir);
@@ -499,7 +489,7 @@
             this.Controls.Add(this.materialLabel6);
             this.Controls.Add(this.TXT_Outs);
             this.Controls.Add(this.materialLabel5);
-            this.Controls.Add(this.TXT_Faltante);
+            this.Controls.Add(this.TXT_C_Faltante);
             this.Controls.Add(this.materialLabel4);
             this.Controls.Add(this.TXT_H);
             this.Controls.Add(this.materialLabel3);
@@ -514,6 +504,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Plan_Agregado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Demanda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_SS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Totales)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -528,7 +519,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private System.Windows.Forms.TextBox TXT_H;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
-        private System.Windows.Forms.TextBox TXT_Faltante;
+        private System.Windows.Forms.TextBox TXT_C_Faltante;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private System.Windows.Forms.TextBox TXT_Outs;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
@@ -538,8 +529,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private System.Windows.Forms.TextBox TXT_C_Hr_N;
         private MaterialSkin.Controls.MaterialLabel materialLabel8;
-        private System.Windows.Forms.TextBox TXT_C_Hrs_E;
-        private MaterialSkin.Controls.MaterialLabel materialLabel9;
         private MaterialSkin.Controls.MaterialLabel materialLabel10;
         private MaterialSkin.Controls.MaterialLabel materialLabel11;
         private MaterialSkin.Controls.MaterialLabel materialLabel12;
@@ -557,5 +546,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel14;
         private System.Windows.Forms.TextBox TXT_T_Elab;
         private MaterialSkin.Controls.MaterialLabel LBL_Total;
+        private System.Windows.Forms.DataGridView DGV_Totales;
     }
 }
