@@ -90,6 +90,7 @@
             // 
             // DGV_Plan_Agregado
             // 
+            this.DGV_Plan_Agregado.AllowUserToAddRows = false;
             this.DGV_Plan_Agregado.BackgroundColor = System.Drawing.Color.White;
             this.DGV_Plan_Agregado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Plan_Agregado.Location = new System.Drawing.Point(22, 289);
@@ -99,11 +100,12 @@
             // 
             // DGV_Demanda
             // 
+            this.DGV_Demanda.AllowUserToAddRows = false;
             this.DGV_Demanda.BackgroundColor = System.Drawing.Color.White;
             this.DGV_Demanda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Demanda.Location = new System.Drawing.Point(651, 49);
             this.DGV_Demanda.Name = "DGV_Demanda";
-            this.DGV_Demanda.Size = new System.Drawing.Size(514, 97);
+            this.DGV_Demanda.Size = new System.Drawing.Size(514, 87);
             this.DGV_Demanda.TabIndex = 3;
             // 
             // materialLabel2
@@ -295,7 +297,7 @@
             this.BTN_Calcular.Depth = 0;
             this.BTN_Calcular.HighEmphasis = true;
             this.BTN_Calcular.Icon = null;
-            this.BTN_Calcular.Location = new System.Drawing.Point(357, 230);
+            this.BTN_Calcular.Location = new System.Drawing.Point(355, 230);
             this.BTN_Calcular.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.BTN_Calcular.MouseState = MaterialSkin.MouseState.HOVER;
             this.BTN_Calcular.Name = "BTN_Calcular";
@@ -412,9 +414,10 @@
             // 
             // DGV_SS
             // 
+            this.DGV_SS.AllowUserToAddRows = false;
             this.DGV_SS.BackgroundColor = System.Drawing.Color.White;
             this.DGV_SS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_SS.Location = new System.Drawing.Point(651, 152);
+            this.DGV_SS.Location = new System.Drawing.Point(651, 142);
             this.DGV_SS.Name = "DGV_SS";
             this.DGV_SS.Size = new System.Drawing.Size(514, 130);
             this.DGV_SS.TabIndex = 36;
@@ -443,7 +446,7 @@
             this.LBL_Total.AutoSize = true;
             this.LBL_Total.Depth = 0;
             this.LBL_Total.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LBL_Total.Location = new System.Drawing.Point(662, 508);
+            this.LBL_Total.Location = new System.Drawing.Point(399, 508);
             this.LBL_Total.MouseState = MaterialSkin.MouseState.HOVER;
             this.LBL_Total.Name = "LBL_Total";
             this.LBL_Total.Size = new System.Drawing.Size(53, 19);
@@ -452,11 +455,12 @@
             // 
             // DGV_Totales
             // 
+            this.DGV_Totales.AllowUserToAddRows = false;
             this.DGV_Totales.BackgroundColor = System.Drawing.Color.White;
             this.DGV_Totales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_Totales.Location = new System.Drawing.Point(964, 289);
+            this.DGV_Totales.Location = new System.Drawing.Point(964, 336);
             this.DGV_Totales.Name = "DGV_Totales";
-            this.DGV_Totales.Size = new System.Drawing.Size(201, 216);
+            this.DGV_Totales.Size = new System.Drawing.Size(201, 129);
             this.DGV_Totales.TabIndex = 40;
             // 
             // PlanForm
