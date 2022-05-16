@@ -83,6 +83,7 @@ namespace MRP.Calculos
 
         public static void persecucion(DataGridView ss, DataGridView main, Label lbl_total, float c_contratacion, float c_despido, float c_hrs_n, float hrs_diarias, float tasa_ss, int inv_ini, int periodos, int[] demandas, int[] dias, float t_elab)
         {
+            main.DataSource = null;
             main.Rows.Clear();
             main.Columns.Clear();
             float c_total_estrategia = 0;
@@ -170,6 +171,7 @@ namespace MRP.Calculos
         }
         public static void fuerza_nivelada(DataGridView ss, DataGridView main, Label lbl_total, float c_faltante, float h, float c_hrs_n, float hrs_diarias, float tasa_ss, int inv_ini, int periodos, int[] demandas, int[] dias, float t_elab, int f_lab)
         {
+            main.DataSource = null;
             main.Rows.Clear();
             main.Columns.Clear();
             float c_total_estrategia = 0;
@@ -264,6 +266,7 @@ namespace MRP.Calculos
         }
         public static void outsourcing(DataGridView ss, DataGridView main, Label lbl_total, float c_outsourcing, float c_hrs_n, float hrs_diarias, float tasa_ss, int inv_ini, int periodos, int[] demandas, int[] dias, float t_elab, int f_lab)
         {
+            main.DataSource = null;
             main.Rows.Clear();
             main.Columns.Clear();
             float c_total_estrategia = 0;
@@ -367,7 +370,6 @@ namespace MRP.Calculos
                 fuerza_nivelada(ss, main, lbl_total, c_faltante, h, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, 0);
                 outsourcing(ss, main, lbl_total, c_outsourcing, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, 0);
             }
-            
 
             main.Rows.Clear();
             main.Columns.Clear();

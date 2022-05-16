@@ -169,6 +169,9 @@
   <data name="Proveeodr" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Proveeodr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="store_icon_icons_com_54371" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\store_icon-icons.com_54371.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="volver_flecha_izquierda" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\volver-flecha-izquierda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
