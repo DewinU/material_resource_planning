@@ -199,8 +199,8 @@ namespace MRP.Calculos
             main.Rows[10].HeaderCell.Value = "C T Normal";
             main.Rows[11].HeaderCell.Value = "C Total";
             main.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
-
-
+            
+            
             //calcular mano de obra
             int fuerza_lab = 0;
             if (f_lab > 0)
@@ -213,6 +213,8 @@ namespace MRP.Calculos
                 Console.WriteLine(fuerza_lab);
             }
 
+            int No_Trab_Prom = (req_list.Sum() * (int)t_elab) / (dias.Sum() * (int)hrs_diarias);
+            Console.WriteLine(No_Trab_Prom);
             
             
             for (int i = 0; i < periodos; i++)
@@ -312,7 +314,7 @@ namespace MRP.Calculos
                 }
                 else
                 {
-                    main.Rows[4].Cells[i].Value = float.Parse(main.Rows[0].Cells[i].Value.ToString()) - float.Parse(main.Rows[3].Cells[i].Value.ToString());
+                main.Rows[4].Cells[i].Value = float.Parse(main.Rows[0].Cells[i].Value.ToString()) - float.Parse(main.Rows[3].Cells[i].Value.ToString());
                 }
                 main.Rows[5].Cells[i].Value = float.Parse(main.Rows[4].Cells[i].Value.ToString()) * c_outsourcing;
                 main.Rows[6].Cells[i].Value = float.Parse(main.Rows[2].Cells[i].Value.ToString()) * c_hrs_n;
@@ -322,7 +324,7 @@ namespace MRP.Calculos
                 if (int.Parse(main.Rows[3].Cells[i].Value.ToString()) - int.Parse(main.Rows[0].Cells[i].Value.ToString()) > 0)
                 {
                     excedente = int.Parse(main.Rows[3].Cells[i].Value.ToString()) - int.Parse(main.Rows[0].Cells[i].Value.ToString());
-                }
+            }
                 else
                 {
                     excedente = 0;

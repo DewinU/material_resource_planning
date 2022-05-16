@@ -41,8 +41,7 @@ namespace MRP.Forms
             ToolTip toolTip5 = new ToolTip();
             toolTip5.SetToolTip(btnModelosP, "Modelos de Pedidos");
 
-            ToolTip toolTip6 = new ToolTip();
-            toolTip6.SetToolTip(btnMRP, "MRP");
+
 
 
 
