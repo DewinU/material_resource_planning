@@ -84,6 +84,7 @@
     <Compile Include="Beans\BOMDetalle.cs" />
     <Compile Include="Beans\MateriaPrima.cs" />
     <Compile Include="Beans\Proveedor.cs" />
+    <Compile Include="Beans\Validaciones.cs" />
     <Compile Include="Calculos\BOMData.cs" />
     <Compile Include="Calculos\Estrategias_Plan_Agregado.cs" />
     <Compile Include="Calculos\Models.cs" />

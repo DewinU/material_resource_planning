@@ -228,9 +228,9 @@ namespace MRP.Calculos
                 main.Rows[2].Cells[i].Value = dias[i] * 8 * fuerza_lab;
                 main.Rows[3].Cells[i].Value = float.Parse(main.Rows[2].Cells[i].Value.ToString()) / t_elab;
                 main.Rows[4].Cells[i].Value = demandas[i];
-                main.Rows[5].Cells[i].Value = inv_ini + int.Parse(main.Rows[3].Cells[i].Value.ToString()) - int.Parse(main.Rows[4].Cells[i].Value.ToString());
+                main.Rows[5].Cells[i].Value = inv_ini + float.Parse(main.Rows[3].Cells[i].Value.ToString()) - float.Parse(main.Rows[4].Cells[i].Value.ToString());
 
-                if (int.Parse(main.Rows[5].Cells[i].Value.ToString()) < 0)
+                if (float.Parse(main.Rows[5].Cells[i].Value.ToString()) < 0)
                 {
                     main.Rows[6].Cells[i].Value = Math.Abs(float.Parse(main.Rows[5].Cells[i].Value.ToString()) * c_faltante);
                 }
@@ -239,21 +239,21 @@ namespace MRP.Calculos
                     main.Rows[6].Cells[i].Value = 0;
                 }
                 main.Rows[7].Cells[i].Value = int.Parse(ss.Rows[1].Cells[i].Value.ToString());
-                if (int.Parse(main.Rows[5].Cells[i].Value.ToString()) - int.Parse(main.Rows[7].Cells[i].Value.ToString()) > 0)
+                if (float.Parse(main.Rows[5].Cells[i].Value.ToString()) - int.Parse(main.Rows[7].Cells[i].Value.ToString()) > 0)
                 {
-                    main.Rows[8].Cells[i].Value = int.Parse(main.Rows[5].Cells[i].Value.ToString()) - int.Parse(main.Rows[7].Cells[i].Value.ToString());
+                    main.Rows[8].Cells[i].Value = float.Parse(main.Rows[5].Cells[i].Value.ToString()) - float.Parse(main.Rows[7].Cells[i].Value.ToString());
                 }
                 else
                 {
                     main.Rows[8].Cells[i].Value = 0;
                 }
-                main.Rows[9].Cells[i].Value = Math.Round(int.Parse(main.Rows[8].Cells[i].Value.ToString()) * h);
+                main.Rows[9].Cells[i].Value = Math.Round(float.Parse(main.Rows[8].Cells[i].Value.ToString()) * h);
                 main.Rows[10].Cells[i].Value = float.Parse(main.Rows[2].Cells[i].Value.ToString()) * c_hrs_n;
                 main.Rows[11].Cells[i].Value = float.Parse(main.Rows[6].Cells[i].Value.ToString()) + float.Parse(main.Rows[9].Cells[i].Value.ToString()) + float.Parse(main.Rows[10].Cells[i].Value.ToString());
                 
                 c_total_estrategia += float.Parse(main.Rows[11].Cells[i].Value.ToString());
 
-                inv_ini = int.Parse(main.Rows[5].Cells[i].Value.ToString());
+                inv_ini = Convert.ToInt32(float.Parse(main.Rows[5].Cells[i].Value.ToString()));
             }
             lbl_total.Text = "Costo Total Estrategia: " + c_total_estrategia.ToString();
 
@@ -327,9 +327,9 @@ namespace MRP.Calculos
                 main.Rows[7].Cells[i].Value = float.Parse(main.Rows[5].Cells[i].Value.ToString()) + float.Parse(main.Rows[6].Cells[i].Value.ToString());
                 c_total_estrategia += float.Parse(main.Rows[7].Cells[i].Value.ToString());
 
-                if (int.Parse(main.Rows[3].Cells[i].Value.ToString()) - int.Parse(main.Rows[0].Cells[i].Value.ToString()) > 0)
+                if (float.Parse(main.Rows[3].Cells[i].Value.ToString()) - int.Parse(main.Rows[0].Cells[i].Value.ToString()) > 0)
                 {
-                    excedente = int.Parse(main.Rows[3].Cells[i].Value.ToString()) - int.Parse(main.Rows[0].Cells[i].Value.ToString());
+                    excedente = Convert.ToInt32(float.Parse(main.Rows[3].Cells[i].Value.ToString())) - int.Parse(main.Rows[0].Cells[i].Value.ToString());
             }
                 else
                 {
