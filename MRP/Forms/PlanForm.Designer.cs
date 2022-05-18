@@ -91,16 +91,20 @@
             // DGV_Plan_Agregado
             // 
             this.DGV_Plan_Agregado.AllowUserToAddRows = false;
+            this.DGV_Plan_Agregado.AllowUserToDeleteRows = false;
             this.DGV_Plan_Agregado.BackgroundColor = System.Drawing.Color.White;
             this.DGV_Plan_Agregado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Plan_Agregado.Location = new System.Drawing.Point(22, 289);
             this.DGV_Plan_Agregado.Name = "DGV_Plan_Agregado";
+            this.DGV_Plan_Agregado.ReadOnly = true;
             this.DGV_Plan_Agregado.Size = new System.Drawing.Size(936, 216);
             this.DGV_Plan_Agregado.TabIndex = 2;
+            this.DGV_Plan_Agregado.SelectionChanged += new System.EventHandler(this.DGV_Plan_Agregado_SelectionChanged);
             // 
             // DGV_Demanda
             // 
             this.DGV_Demanda.AllowUserToAddRows = false;
+            this.DGV_Demanda.AllowUserToDeleteRows = false;
             this.DGV_Demanda.BackgroundColor = System.Drawing.Color.White;
             this.DGV_Demanda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Demanda.Location = new System.Drawing.Point(651, 49);
@@ -388,7 +392,7 @@
             // TXT_Hrs_Lab
             // 
             this.TXT_Hrs_Lab.Location = new System.Drawing.Point(405, 111);
-            this.TXT_Hrs_Lab.Mask = "00000";
+            this.TXT_Hrs_Lab.Mask = "0000000";
             this.TXT_Hrs_Lab.Name = "TXT_Hrs_Lab";
             this.TXT_Hrs_Lab.Size = new System.Drawing.Size(129, 20);
             this.TXT_Hrs_Lab.TabIndex = 33;
@@ -397,7 +401,7 @@
             // TXT_Inv_Ini
             // 
             this.TXT_Inv_Ini.Location = new System.Drawing.Point(405, 80);
-            this.TXT_Inv_Ini.Mask = "00000";
+            this.TXT_Inv_Ini.Mask = "0000000";
             this.TXT_Inv_Ini.Name = "TXT_Inv_Ini";
             this.TXT_Inv_Ini.Size = new System.Drawing.Size(129, 20);
             this.TXT_Inv_Ini.TabIndex = 34;
@@ -406,7 +410,7 @@
             // TXT_F_Lab
             // 
             this.TXT_F_Lab.Location = new System.Drawing.Point(406, 48);
-            this.TXT_F_Lab.Mask = "00000";
+            this.TXT_F_Lab.Mask = "0000000";
             this.TXT_F_Lab.Name = "TXT_F_Lab";
             this.TXT_F_Lab.Size = new System.Drawing.Size(128, 20);
             this.TXT_F_Lab.TabIndex = 35;
@@ -415,12 +419,15 @@
             // DGV_SS
             // 
             this.DGV_SS.AllowUserToAddRows = false;
+            this.DGV_SS.AllowUserToDeleteRows = false;
             this.DGV_SS.BackgroundColor = System.Drawing.Color.White;
             this.DGV_SS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_SS.Location = new System.Drawing.Point(651, 142);
             this.DGV_SS.Name = "DGV_SS";
+            this.DGV_SS.ReadOnly = true;
             this.DGV_SS.Size = new System.Drawing.Size(514, 130);
             this.DGV_SS.TabIndex = 36;
+            this.DGV_SS.SelectionChanged += new System.EventHandler(this.DGV_SS_SelectionChanged);
             // 
             // materialLabel14
             // 
@@ -449,19 +456,21 @@
             this.LBL_Total.Location = new System.Drawing.Point(399, 508);
             this.LBL_Total.MouseState = MaterialSkin.MouseState.HOVER;
             this.LBL_Total.Name = "LBL_Total";
-            this.LBL_Total.Size = new System.Drawing.Size(53, 19);
+            this.LBL_Total.Size = new System.Drawing.Size(1, 0);
             this.LBL_Total.TabIndex = 39;
-            this.LBL_Total.Text = "asasda";
             // 
             // DGV_Totales
             // 
             this.DGV_Totales.AllowUserToAddRows = false;
+            this.DGV_Totales.AllowUserToDeleteRows = false;
             this.DGV_Totales.BackgroundColor = System.Drawing.Color.White;
             this.DGV_Totales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Totales.Location = new System.Drawing.Point(964, 336);
             this.DGV_Totales.Name = "DGV_Totales";
+            this.DGV_Totales.ReadOnly = true;
             this.DGV_Totales.Size = new System.Drawing.Size(201, 129);
             this.DGV_Totales.TabIndex = 40;
+            this.DGV_Totales.SelectionChanged += new System.EventHandler(this.DGV_Totales_SelectionChanged);
             // 
             // PlanForm
             // 

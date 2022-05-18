@@ -94,6 +94,7 @@ namespace MRP.Calculos
             for (int i = 0; i < periodos; i++)
             {
                 main.Columns.Add("periodo_" + (i + 1).ToString(), "Periodo " + (i + 1).ToString());
+                main.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
             main.RowCount = 11;
@@ -184,6 +185,7 @@ namespace MRP.Calculos
             for (int i = 0; i < periodos; i++)
             {
                 main.Columns.Add("periodo_" + (i + 1).ToString(), "Periodo " + (i + 1).ToString());
+                main.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
             //filas
             main.RowCount = 12;
@@ -279,6 +281,7 @@ namespace MRP.Calculos
             for (int i = 0; i < periodos; i++)
             {
                 main.Columns.Add("periodo_" + (i + 1).ToString(), "Periodo " + (i + 1).ToString());
+                main.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
             main.RowCount = 8;
@@ -350,7 +353,6 @@ namespace MRP.Calculos
             main.DataSource = null;
             main.Rows.Clear();
             main.Columns.Clear();
-            float c_total_estrategia = 0;
             int[] req_list = new int[periodos];
             req_list = make_ss(ss, periodos, tasa_ss, demandas, inv_ini);
             string nombre_estrat = "";
@@ -380,6 +382,11 @@ namespace MRP.Calculos
             PrintValues(DT_Total_Estrategias,"aaaaaa");
 
             main.DataSource = DT_Total_Estrategias;
+
+            foreach (DataGridViewColumn column in main.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
 
             main.Rows[0].HeaderCell.Value = "Req de Prod";
             main.Rows[1].HeaderCell.Value = "Hrs de Prod Req";
@@ -460,7 +467,7 @@ namespace MRP.Calculos
                     nombre_estrat = totales.Rows[i].Cells[0].Value.ToString();
                 }
             }
-            lbl_total.Text = "Mejor Estrategia: " + nombre_estrat.ToString() + " Costo Total Estrategia: " + MinEstrategia.ToString();
+            lbl_total.Text = "Mejor Estrategia: " + nombre_estrat.ToString() + ", Costo Total Estrategia: " + MinEstrategia.ToString();
         }
 
 
