@@ -114,40 +114,56 @@ namespace MRP.Forms
                 DGV_Demanda.Rows.Clear();
                 DGV_SS.Columns.Clear();
                 DGV_SS.Rows.Clear();
+                DGV_Plan_Agregado.DataSource = null;
                 DGV_Plan_Agregado.Columns.Clear();
                 DGV_Plan_Agregado.Rows.Clear();
+                DGV_Totales.Columns.Clear();
+                DGV_Totales.Rows.Clear();
+                LBL_Total.Text = "";
             }
         }
 
         private void BTN_Calcular_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(TXT_C_Hr_N.Text) 
-                || string.IsNullOrWhiteSpace(TXT_C_Hr_N.Text)
+            float entero_prueba;
+            //
+            if (string.IsNullOrEmpty(TXT_C_Hr_N.Text)
                 || string.IsNullOrEmpty(TXT_Hrs_Lab.Text)
-                || string.IsNullOrWhiteSpace(TXT_Hrs_Lab.Text)
                 || string.IsNullOrEmpty(TXT_T_Elab.Text)
-                || string.IsNullOrWhiteSpace(TXT_T_Elab.Text)
-                || string.IsNullOrEmpty(TXT_C_Hr_N.Text)
-                || string.IsNullOrWhiteSpace(TXT_C_Hr_N.Text)
                 || string.IsNullOrEmpty(TXT_Costo.Text)
-                || string.IsNullOrWhiteSpace(TXT_Costo.Text)
-                || string.IsNullOrEmpty(TXT_tasa_SS.Text)
-                || string.IsNullOrWhiteSpace(TXT_tasa_SS.Text)
                 || string.IsNullOrEmpty(TXT_Inv_Ini.Text)
-                || string.IsNullOrWhiteSpace(TXT_Inv_Ini.Text)
+                || string.IsNullOrEmpty(TXT_tasa_SS.Text)
+                || float.Parse(TXT_C_Hr_N.Text) == 0
+                || float.Parse(TXT_Hrs_Lab.Text) == 0
+                || float.Parse(TXT_T_Elab.Text) == 0
+                || float.Parse(TXT_Costo.Text) == 0
                )
             {
-                MessageBox.Show("Porfavor Ingrese los datos principales, revise que no halla espacios en blancos", "Advertencia", MessageBoxButtons.OK);
+                MessageBox.Show("Porfavor Ingrese los datos principales", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
-            float entero_prueba;
+
+            //
+            if (TXT_Costo.Text.Contains(" ")
+                || TXT_H.Text.Contains(" ")
+                || TXT_C_Faltante.Text.Contains(" ")
+                || TXT_Outs.Text.Contains(" ")
+                || TXT_Contratar.Text.Contains(" ")
+                || TXT_Despedir.Text.Contains(" ")
+                || TXT_C_Hr_N.Text.Contains(" ")
+                || TXT_F_Lab.Text.Contains(" ")
+                || TXT_Inv_Ini.Text.Contains(" ")
+                || TXT_Hrs_Lab.Text.Contains(" ")
+                || TXT_tasa_SS.Text.Contains(" ")
+                || TXT_T_Elab.Text.Contains(" ")
+               )
+            {
+                MessageBox.Show("No se permite espacios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;  //Sale
+            }
+
+            //valida que halla valores numericos solamente
             if (!float.TryParse(TXT_Costo.Text, out entero_prueba)
-                || !float.TryParse(TXT_H.Text, out entero_prueba)
-                || !float.TryParse(TXT_C_Faltante.Text, out entero_prueba)
-                || !float.TryParse(TXT_Outs.Text, out entero_prueba)
-                || !float.TryParse(TXT_Contratar.Text, out entero_prueba)
-                || !float.TryParse(TXT_Despedir.Text, out entero_prueba)
                 || !float.TryParse(TXT_C_Hr_N.Text, out entero_prueba)
                 || !float.TryParse(TXT_F_Lab.Text, out entero_prueba)
                 || !float.TryParse(TXT_Inv_Ini.Text, out entero_prueba)
@@ -156,12 +172,33 @@ namespace MRP.Forms
                 || !float.TryParse(TXT_T_Elab.Text, out entero_prueba)
                )
             {
-                MessageBox.Show("Porfavor introduzca valores numericos solamente", "Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show("Porfavor introduzca valores numericos solamente", "Advertencia", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
                 return;
             }
 
+            //comprueba que no halla espacios en blanco en la tabla de demandas
+            foreach (DataGridViewRow rw in this.DGV_Demanda.Rows)
+            {
+                for (int i = 0; i < rw.Cells.Count; i++)
+                {
+                    if (rw.Cells[i].Value == null || rw.Cells[i].Value == DBNull.Value || String.IsNullOrWhiteSpace(rw.Cells[i].Value.ToString()))
+                    {
+                        MessageBox.Show("Porfavor introduzca completamente los valores requeridos", "Advertencia", MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+            }
 
+            if (DGV_Demanda.Rows.Count == 0)
+            {
+                MessageBox.Show("Porfavor introduzca los datos de la demanda", "Advertencia", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
+            //comprueba que no halla caracteres no numericos en la tabla de demandas
             try
             {
                 c_contratar = float.Parse(TXT_Contratar.Text);
@@ -196,38 +233,63 @@ namespace MRP.Forms
             switch (CBO_Estrategias.SelectedIndex)
             {
                 case 0:
-                    if (string.IsNullOrEmpty(TXT_Contratar.Text) 
-                        || string.IsNullOrWhiteSpace(TXT_Contratar.Text) 
+                    if (float.Parse(TXT_Contratar.Text) == 0
+                        || float.Parse(TXT_Despedir.Text) == 0
+                        || string.IsNullOrEmpty(TXT_Contratar.Text)
                         || string.IsNullOrEmpty(TXT_Despedir.Text)
-                        || string.IsNullOrWhiteSpace(TXT_Despedir.Text))
+                       )
                     {
-                        MessageBox.Show("Porfavor introduzca los datos necesarios de la estrategia seleccionada", "Error", MessageBoxButtons.OK,
+                        MessageBox.Show("Porfavor introduzca los datos necesarios de la estrategia seleccionada", "Advertencia", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
                     }
                     else
                     {
+                        if (!float.TryParse(TXT_Contratar.Text, out entero_prueba)
+                            || !float.TryParse(TXT_Despedir.Text, out entero_prueba))
+                        {
+                            MessageBox.Show("Porfavor introduzca valores numericos solamente", "Advertencia", MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        DGV_Totales.Columns.Clear();
+                        DGV_Totales.Rows.Clear();
                         Estrategias_Plan_Agregado.persecucion(DGV_SS, DGV_Plan_Agregado, LBL_Total, c_contratar, c_despido, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab);
-                        break;
                     }
+                    break;
+
                 case 1:
-                    if (string.IsNullOrEmpty(TXT_C_Faltante.Text)
-                        || string.IsNullOrWhiteSpace(TXT_C_Faltante.Text)
+                    if (float.Parse(TXT_C_Faltante.Text) == 0
+                        || float.Parse(TXT_H.Text) == 0
+                        || string.IsNullOrEmpty(TXT_C_Faltante.Text)
                         || string.IsNullOrEmpty(TXT_H.Text)
-                        || string.IsNullOrWhiteSpace(TXT_H.Text))
+                        )
                     {
-                        MessageBox.Show("Porfavor introduzca los datos necesarios de la estrategia seleccionada", "Error", MessageBoxButtons.OK,
+                        MessageBox.Show("Porfavor introduzca los datos necesarios de la estrategia seleccionada", "Advertencia", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
                     }
-                    
-                    if(int.Parse(TXT_F_Lab.Text) == 0)
+
+                    if (!float.TryParse(TXT_C_Faltante.Text, out entero_prueba)
+                        || !float.TryParse(TXT_H.Text, out entero_prueba))
+                    {
+                        MessageBox.Show("Porfavor introduzca valores numericos solamente", "Advertencia", MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    if (int.Parse(TXT_F_Lab.Text) == 0
+                       || string.IsNullOrEmpty(TXT_F_Lab.Text)
+                       )
                     {
                         var result = MessageBox.Show(
                             "Desea continuar sin Fuerza Lab?, se realizara un promedio de empleados necesarios durante los periodos como fuerza laboral si es asi",
                             "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (result == DialogResult.Yes)
                         {
+                            DGV_Totales.Columns.Clear();
+                            DGV_Totales.Rows.Clear();
                             Estrategias_Plan_Agregado.fuerza_nivelada(DGV_SS, DGV_Plan_Agregado, LBL_Total, c_faltante, H, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, 0);
                             
                         }else
@@ -237,26 +299,39 @@ namespace MRP.Forms
                     }
                     else
                     {
+                        DGV_Totales.Columns.Clear();
+                        DGV_Totales.Rows.Clear();
                         Estrategias_Plan_Agregado.fuerza_nivelada(DGV_SS, DGV_Plan_Agregado, LBL_Total, c_faltante, H, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, f_lab);
                     }
                     break;
 
                 case 2:
-                    if (string.IsNullOrEmpty(TXT_Outs.Text)
-                        || string.IsNullOrWhiteSpace(TXT_Outs.Text)
+                    if (float.Parse(TXT_Outs.Text) == 0
+                        || string.IsNullOrEmpty(TXT_Outs.Text)
                         )
                     {
-                        MessageBox.Show("Porfavor introduzca los datos necesarios de la estrategia seleccionada", "Error", MessageBoxButtons.OK,
+                        MessageBox.Show("Porfavor introduzca los datos necesarios de la estrategia seleccionada", "Advertencia", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
                     }
-                    if (int.Parse(TXT_F_Lab.Text) == 0)
+
+                    if (!float.TryParse(TXT_Outs.Text, out entero_prueba))
+                    {
+                        MessageBox.Show("Porfavor introduzca valores numericos solamente", "Advertencia", MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    if (int.Parse(TXT_F_Lab.Text) == 0
+                        || string.IsNullOrEmpty(TXT_F_Lab.Text))
                     {
                         var result = MessageBox.Show(
                             "Desea continuar sin Fuerza Lab?, se realizara un promedio de empleados necesarios durante los periodos como fuerza laboral si es asi",
                             "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (result == DialogResult.Yes)
                         {
+                            DGV_Totales.Columns.Clear();
+                            DGV_Totales.Rows.Clear();
                             Estrategias_Plan_Agregado.outsourcing(DGV_SS, DGV_Plan_Agregado, LBL_Total, c_outsourcing, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, 0);
 
                         }
@@ -267,21 +342,46 @@ namespace MRP.Forms
                     }
                     else
                     {
+                        DGV_Totales.Columns.Clear();
+                        DGV_Totales.Rows.Clear();
                         Estrategias_Plan_Agregado.outsourcing(DGV_SS, DGV_Plan_Agregado, LBL_Total, c_outsourcing, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, f_lab);
                     }
                     break;
+
                 case 3:
-                    if (string.IsNullOrEmpty(TXT_Outs.Text)
-                        || string.IsNullOrWhiteSpace(TXT_Outs.Text)
+                    
+                    if (float.Parse(TXT_H.Text) == 0
+                        || float.Parse(TXT_C_Faltante.Text) == 0
+                        || float.Parse(TXT_Outs.Text) == 0
+                        || float.Parse(TXT_Contratar.Text) == 0
+                        || float.Parse(TXT_Despedir.Text) == 0
+                        || string.IsNullOrEmpty(TXT_H.Text)
+                        || string.IsNullOrEmpty(TXT_C_Faltante.Text)
                         || string.IsNullOrEmpty(TXT_Outs.Text)
-                        || string.IsNullOrWhiteSpace(TXT_Outs.Text)
+                        || string.IsNullOrEmpty(TXT_Contratar.Text)
+                        || string.IsNullOrEmpty(TXT_Despedir.Text)
                        )
                     {
-                        MessageBox.Show("Porfavor introduzca los datos necesarios de la estrategia seleccionada", "Error", MessageBoxButtons.OK,
+                        MessageBox.Show("Porfavor introduzca los datos necesarios de la estrategia seleccionada", "Advertencia", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
                     }
-                    if (int.Parse(TXT_F_Lab.Text) == 0)
+
+                    if (!float.TryParse(TXT_H.Text, out entero_prueba)
+                        || !float.TryParse(TXT_C_Faltante.Text, out entero_prueba)
+                        || !float.TryParse(TXT_Outs.Text, out entero_prueba)
+                        || !float.TryParse(TXT_Contratar.Text, out entero_prueba)
+                        || !float.TryParse(TXT_Despedir.Text, out entero_prueba))
+                    {
+                        MessageBox.Show("Porfavor introduzca valores numericos solamente", "Advertencia", MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                        return;
+                    }
+
+
+                    if (int.Parse(TXT_F_Lab.Text) == 0
+                        || string.IsNullOrEmpty(TXT_F_Lab.Text)
+                        )
                     {
                         var result = MessageBox.Show(
                             "Desea continuar sin Fuerza Lab?, se realizara un promedio de empleados necesarios durante los periodos como fuerza laboral si es asi",
@@ -318,6 +418,21 @@ namespace MRP.Forms
             TXT_Outs.Enabled = true;
             TXT_tasa_SS.Enabled = true;
             TXT_T_Elab.Enabled = true;
+        }
+
+        private void DGV_Plan_Agregado_SelectionChanged(object sender, EventArgs e)
+        {
+            this.DGV_Plan_Agregado.ClearSelection();
+        }
+
+        private void DGV_Totales_SelectionChanged(object sender, EventArgs e)
+        {
+            this.DGV_Totales.ClearSelection();
+        }
+
+        private void DGV_SS_SelectionChanged(object sender, EventArgs e)
+        {
+            this.DGV_SS.ClearSelection();
         }
 
         private void Limpiar_Cajas()
