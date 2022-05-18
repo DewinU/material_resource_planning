@@ -147,29 +147,39 @@ namespace MRP.Forms
 
         private bool AddDtBOM()
         {
-            bool flag = true;
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            try
             {
-                BOMDetalle bom = new BOMDetalle();
-                if (int.Parse(dataGridView1.Rows[i].Cells["txtCantidad"].Value.ToString()) == 0)
+                bool flag = true;
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
-                    MessageBox.Show("Por favor digite una cantida", "Error de igreso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    flag = false;
-                }
-                else
-                {
-                    bom.cantidad = int.Parse((dataGridView1.Rows[i].Cells["txtCantidad"].Value.ToString()));
-                    bom.idBom = int.Parse(txtId.Text);
-                    bom.idBomDetalle = BOMData.getLastIdDetail();
-                    bom.idMp = mpData.getMpByName(dataGridView1.Rows[i].Cells["clmProducto"].Value.ToString()).IdMP;
-                    BOMData.BdList.Add(bom);
-                    flag = true;
-                }
+                    BOMDetalle bom = new BOMDetalle();
+                    if (int.Parse(dataGridView1.Rows[i].Cells["txtCantidad"].Value.ToString()) == 0)
+                    {
+                        MessageBox.Show("Por favor digite una cantida", "Error de igreso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        flag = false;
+                    }
+                    else
+                    {
+                        bom.cantidad = int.Parse((dataGridView1.Rows[i].Cells["txtCantidad"].Value.ToString()));
+                        bom.idBom = int.Parse(txtId.Text);
+                        bom.idBomDetalle = BOMData.getLastIdDetail();
+                        bom.idMp = mpData.getMpByName(dataGridView1.Rows[i].Cells["clmProducto"].Value.ToString()).IdMP;
+                        BOMData.BdList.Add(bom);
+                        flag = true;
+                    }
 
 
+                }
+
+                return flag;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Formatos no validos", "Error de igreso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return false;
             }
 
-            return flag;
         }
 
         private void materialButton2_Click(object sender, EventArgs e)

@@ -382,6 +382,7 @@
             this.txtTiempoEntrega.TabIndex = 23;
             this.txtTiempoEntrega.Text = "";
             this.txtTiempoEntrega.TrailingIcon = null;
+            this.txtTiempoEntrega.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTiempoEntrega_KeyPress);
             // 
             // label6
             // 
@@ -414,6 +415,7 @@
             this.txtStock.TabIndex = 25;
             this.txtStock.Text = "";
             this.txtStock.TrailingIcon = null;
+            this.txtStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStock_KeyPress);
             // 
             // label7
             // 
@@ -445,6 +447,9 @@
             this.txtMinStock.TabIndex = 27;
             this.txtMinStock.Text = "";
             this.txtMinStock.TrailingIcon = null;
+            this.txtMinStock.TextChanged += new System.EventHandler(this.txtMinStock_TextChanged);
+            this.txtMinStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMinStock_KeyPress);
+            this.txtMinStock.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMinStock_KeyUp);
             // 
             // txtNombre
             // 

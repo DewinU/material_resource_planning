@@ -5,7 +5,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -66,6 +68,11 @@ namespace MRP.Forms
                 MessageBox.Show("Todos los campos son obligatorios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            else if (!checktxt(txtCostoUnitario) || !checktxt(txtDemanda) || !checktxt(txtMantenimiento) || !checktxt(txtPedido) || !checktxt(txtDiasLaborales) || !checktxt(txtStdev) || !checktxt(txtInventario))
+            {
+                MessageBox.Show("formatos no validos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             if (txtMantenimiento.Text == "0")
             {
@@ -73,13 +80,19 @@ namespace MRP.Forms
                 return;
             }
 
+            if (!txtDemanda.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Demanda no puede ser en decimales", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             double zScore = F(double.Parse(txtNivelServicio.Text) / 100);
             int ss = calcSecurityStock(int.Parse(txtStdev.Text), zScore);
             int cantidad = calcModelP(int.Parse(txtDemanda.Text), int.Parse(numPlazo.Value.ToString()), int.Parse(numRevision.Value.ToString()), int.Parse(txtStdev.Text), int.Parse(txtInventario.Text), ss);
 
-            //string costo = calcCosto(int.Parse(txtDemanda.Text), int.Parse(txtPedido.Text), int.Parse(txtMantenimiento.Text), int.Parse(cantidad), double.Parse(txtCostoUnitario.Text)).ToString("C3");
+            string costo = calcCosto(int.Parse(txtDemanda.Text), double.Parse(txtPedido.Text), double.Parse(txtMantenimiento.Text), cantidad, double.Parse(txtCostoUnitario.Text)).ToString("C3");
             solRichTextBox.Text = $"Si se establece un sistema de administración de inventario de periodos fijos se deben hacer pedidos de {cantidad.ToString("N0")} unidades. Además se debe de hacer pedidos cada {numRevision.Value} periodos." +
-                $" El inventario de seguridad con este sistema es de {ss.ToString("N0")} unidades y tiene un costo de {{costo}} unidades monetarias.";
+                $" El inventario de seguridad con este sistema es de {ss.ToString("N0")} unidades y tiene un costo de {costo} unidades monetarias.";
 
 
         }
@@ -113,6 +126,16 @@ namespace MRP.Forms
             panelCont.Controls.Clear();
             prov.Dock = DockStyle.Fill;
             panelCont.Controls.Add(prov);
+        }
+
+        private bool checktxt(TextBox txt)
+        {
+
+            double retNum;
+
+            bool isNum = Double.TryParse(Convert.ToString(txt.Text), System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out retNum);
+            return isNum;
+
         }
     }
 }

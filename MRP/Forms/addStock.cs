@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MaterialSkin;
 using MRP.Beans;
 using MRP.Calculos;
+using Validar;
 
 namespace MRP.Forms
 {
@@ -62,21 +63,30 @@ namespace MRP.Forms
 
         private void newMp()
         {
-            MateriaPrima mp = new MateriaPrima();
-            mp.IdMP = mpData.getLastId();
-            mp.IdProv = txtProv.SelectedIndex + 1;
-            mp.Nombre = txtNombre.Text;
-            mp.UdM = txtUdm.Text;
-            mp.MinStock = Int32.Parse(txtMinStock.Text);
-            mp.PrecioCompra = double.Parse(txtPrecioCompra.Text);
-            mp.TiempoEntrega = int.Parse(txtTiempoEntrega.Text);
-            mp.Stock = int.Parse(txtStock.Text);
-            mp.isProcured = txtisProcured.Checked;
-            mp.costoMantenimiento = double.Parse(txtCostoMantenimiento.Text);
-            mp.costoEnvio = double.Parse(txtCostoEnvio.Text);
-            mp.tasaMantenimiento = double.Parse(txtTasaMantenimiento.Text);
+            try
+            {
+                MateriaPrima mp = new MateriaPrima();
+                mp.IdMP = mpData.getLastId();
+                mp.IdProv = txtProv.SelectedIndex + 1;
+                mp.Nombre = txtNombre.Text;
+                mp.UdM = txtUdm.Text;
+                mp.MinStock = Int32.Parse(txtMinStock.Text);
+                mp.PrecioCompra = double.Parse(txtPrecioCompra.Text);
+                mp.TiempoEntrega = int.Parse(txtTiempoEntrega.Text);
+                mp.Stock = int.Parse(txtStock.Text);
+                mp.isProcured = txtisProcured.Checked;
+                mp.costoMantenimiento = double.Parse(txtCostoMantenimiento.Text);
+                mp.costoEnvio = double.Parse(txtCostoEnvio.Text);
+                mp.tasaMantenimiento = double.Parse(txtTasaMantenimiento.Text);
 
-            mpData.newMateria(mp);
+                mpData.newMateria(mp);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Formato no valido", "Error de ingreso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
 
 
         }
@@ -138,6 +148,31 @@ namespace MRP.Forms
                         || String.IsNullOrWhiteSpace(txtCostoMantenimiento.Text) || String.IsNullOrWhiteSpace(txtTasaMantenimiento.Text);
 
             return isNullOrWhiteSpace;
+        }
+
+        private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validaciones.SoloNumeros(e);
+        }
+
+        private void txtMinStock_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMinStock_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void txtMinStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validaciones.SoloNumeros(e);
+        }
+
+        private void txtTiempoEntrega_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validaciones.SoloNumeros(e);
         }
     }
 }
