@@ -170,7 +170,7 @@ namespace MRP.Calculos
 
             //PrintValues(DT_Persecucion, "aaaaa");
         }
-        public static void fuerza_nivelada(DataGridView ss, DataGridView main, Label lbl_total, float c_faltante, float h, float c_hrs_n, float hrs_diarias, float tasa_ss, int inv_ini, int periodos, int[] demandas, int[] dias, float t_elab, int f_lab)
+        public static void fuerza_nivelada(DataGridView ss, DataGridView main, Label lbl_total, Label lbl_f_nivelada, float c_faltante, float h, float c_hrs_n, float hrs_diarias, float tasa_ss, int inv_ini, int periodos, int[] demandas, int[] dias, float t_elab, int f_lab)
         {
             main.DataSource = null;
             main.Rows.Clear();
@@ -217,8 +217,7 @@ namespace MRP.Calculos
                 Console.WriteLine(fuerza_lab);
             }
 
-            int No_Trab_Prom = (req_list.Sum() * (int)t_elab) / (dias.Sum() * (int)hrs_diarias);
-            Console.WriteLine(No_Trab_Prom);
+           Console.WriteLine(fuerza_lab);
             
             
             for (int i = 0; i < periodos; i++)
@@ -256,6 +255,7 @@ namespace MRP.Calculos
                 inv_ini = Convert.ToInt32(float.Parse(main.Rows[5].Cells[i].Value.ToString()));
             }
             lbl_total.Text = "Costo Total Estrategia: " + c_total_estrategia.ToString();
+            lbl_f_nivelada.Text = "No. Trabajadores(Fuerza Nivelada): " + fuerza_lab.ToString();
 
             DT_F_Nivelada.Rows.Clear();
             DT_F_Nivelada.Columns.Clear();
@@ -266,7 +266,7 @@ namespace MRP.Calculos
 
             //PrintValues(DT_F_Nivelada, "aaaaa");
         }
-        public static void outsourcing(DataGridView ss, DataGridView main, Label lbl_total, float c_outsourcing, float c_hrs_n, float hrs_diarias, float tasa_ss, int inv_ini, int periodos, int[] demandas, int[] dias, float t_elab, int f_lab)
+        public static void outsourcing(DataGridView ss, DataGridView main, Label lbl_total, Label lbl_outs, float c_outsourcing, float c_hrs_n, float hrs_diarias, float tasa_ss, int inv_ini, int periodos, int[] demandas, int[] dias, float t_elab, int f_lab)
         {
             main.DataSource = null;
             main.Rows.Clear();
@@ -296,15 +296,27 @@ namespace MRP.Calculos
 
             main.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
             //calcular mano de obra
-            int mano_obra = 0;
+            int fuerza_lab = 0;
+            int index = 0;
             if (f_lab > 0)
             {
-                mano_obra = f_lab;
+                fuerza_lab = f_lab;
             }
             else
             {
-                mano_obra = (req_list.Sum() * (int)t_elab) / (dias.Sum() * (int)hrs_diarias);
-                Console.WriteLine(mano_obra);
+                for (int i = 0; i < req_list.Length; i++)
+                {
+                    if (req_list[i] == req_list.Min() && dias[i] == dias.Min())
+                    {
+                        index = i;
+                    }
+                    else if(req_list[i] == req_list.Min())
+                    {
+                        index = i;
+                    }
+                }
+                fuerza_lab = (req_list.Min() * (int)t_elab) / (dias[index] * (int)hrs_diarias);
+                Console.WriteLine(fuerza_lab);
             }
 
             for (int i = 0; i < periodos; i++)
@@ -312,7 +324,7 @@ namespace MRP.Calculos
                 
                 main.Rows[0].Cells[i].Value = req_list[i] - excedente;
                 main.Rows[1].Cells[i].Value = dias[i];
-                main.Rows[2].Cells[i].Value = dias[i] * hrs_diarias * mano_obra;
+                main.Rows[2].Cells[i].Value = dias[i] * hrs_diarias * fuerza_lab;
                 main.Rows[3].Cells[i].Value = float.Parse(main.Rows[2].Cells[i].Value.ToString()) / t_elab;
                 if (float.Parse(main.Rows[0].Cells[i].Value.ToString()) - float.Parse(main.Rows[3].Cells[i].Value.ToString()) < 0)
                 {
@@ -337,6 +349,7 @@ namespace MRP.Calculos
                 }
             }
             lbl_total.Text = "Costo Total Estrategia: " + c_total_estrategia.ToString();
+            lbl_outs.Text = "No. Trabajadores(OutSourcing): " + fuerza_lab.ToString();
 
             DT_OutSourcing.Rows.Clear();
             DT_OutSourcing.Columns.Clear();
@@ -348,7 +361,7 @@ namespace MRP.Calculos
 
         }
 
-        public static void totales_Estrategias(DataGridView totales, DataGridView ss, DataGridView main, Label lbl_total, float h, float c_faltante, float c_outsourcing, float c_contratacion, float c_despido, float c_hrs_n, float hrs_diarias, float tasa_ss, int inv_ini, int periodos, int[] demandas, int[] dias, float t_elab, int f_lab)
+        public static void totales_Estrategias(DataGridView totales, DataGridView ss, DataGridView main, Label lbl_total, Label lbl_f_nivelada, Label lbl_outs, float h, float c_faltante, float c_outsourcing, float c_contratacion, float c_despido, float c_hrs_n, float hrs_diarias, float tasa_ss, int inv_ini, int periodos, int[] demandas, int[] dias, float t_elab, int f_lab)
         {
             main.DataSource = null;
             main.Rows.Clear();
@@ -364,13 +377,13 @@ namespace MRP.Calculos
 
             if (f_lab > 0)
             {
-                fuerza_nivelada(ss, main, lbl_total, c_faltante, h, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, f_lab);
-                outsourcing(ss, main, lbl_total, c_outsourcing, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, f_lab);
+                fuerza_nivelada(ss, main, lbl_total, lbl_f_nivelada, c_faltante, h, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, f_lab);
+                outsourcing(ss, main, lbl_total, lbl_outs, c_outsourcing, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, f_lab);
             }
             else
             {
-                fuerza_nivelada(ss, main, lbl_total, c_faltante, h, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, 0);
-                outsourcing(ss, main, lbl_total, c_outsourcing, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, 0);
+                fuerza_nivelada(ss, main, lbl_total, lbl_f_nivelada, c_faltante, h, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, 0);
+                outsourcing(ss, main, lbl_total, lbl_outs, c_outsourcing, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, 0);
             }
 
             main.Rows.Clear();
