@@ -318,7 +318,6 @@
     <None Include="Resources\store_icon-icons.com_54371.ico" />
     <None Include="Resources\Icon1.ico" />
     <None Include="Resources\Image1.bmp" />
-    <Content Include="store_icon-icons.com_54371.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
