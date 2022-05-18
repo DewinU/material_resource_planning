@@ -63,6 +63,8 @@
             this.TXT_T_Elab = new System.Windows.Forms.TextBox();
             this.LBL_Total = new MaterialSkin.Controls.MaterialLabel();
             this.DGV_Totales = new System.Windows.Forms.DataGridView();
+            this.LBL_F_Nivelada = new MaterialSkin.Controls.MaterialLabel();
+            this.LBL_Outs = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Plan_Agregado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Demanda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_SS)).BeginInit();
@@ -453,12 +455,13 @@
             // 
             this.LBL_Total.AutoSize = true;
             this.LBL_Total.Depth = 0;
-            this.LBL_Total.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.LBL_Total.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.LBL_Total.Location = new System.Drawing.Point(399, 508);
             this.LBL_Total.MouseState = MaterialSkin.MouseState.HOVER;
             this.LBL_Total.Name = "LBL_Total";
-            this.LBL_Total.Size = new System.Drawing.Size(1, 0);
+            this.LBL_Total.Size = new System.Drawing.Size(124, 19);
             this.LBL_Total.TabIndex = 39;
+            this.LBL_Total.Text = "Total_Estrategias";
             // 
             // DGV_Totales
             // 
@@ -473,11 +476,37 @@
             this.DGV_Totales.TabIndex = 40;
             this.DGV_Totales.SelectionChanged += new System.EventHandler(this.DGV_Totales_SelectionChanged);
             // 
+            // LBL_F_Nivelada
+            // 
+            this.LBL_F_Nivelada.AutoSize = true;
+            this.LBL_F_Nivelada.Depth = 0;
+            this.LBL_F_Nivelada.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.LBL_F_Nivelada.Location = new System.Drawing.Point(168, 527);
+            this.LBL_F_Nivelada.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LBL_F_Nivelada.Name = "LBL_F_Nivelada";
+            this.LBL_F_Nivelada.Size = new System.Drawing.Size(144, 19);
+            this.LBL_F_Nivelada.TabIndex = 41;
+            this.LBL_F_Nivelada.Text = "No_Trab_F_nivelada";
+            // 
+            // LBL_Outs
+            // 
+            this.LBL_Outs.AutoSize = true;
+            this.LBL_Outs.Depth = 0;
+            this.LBL_Outs.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.LBL_Outs.Location = new System.Drawing.Point(614, 527);
+            this.LBL_Outs.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LBL_Outs.Name = "LBL_Outs";
+            this.LBL_Outs.Size = new System.Drawing.Size(101, 19);
+            this.LBL_Outs.TabIndex = 42;
+            this.LBL_Outs.Text = "No_Trab_Outs";
+            // 
             // PlanForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.Controls.Add(this.LBL_Outs);
+            this.Controls.Add(this.LBL_F_Nivelada);
             this.Controls.Add(this.DGV_Totales);
             this.Controls.Add(this.LBL_Total);
             this.Controls.Add(this.TXT_T_Elab);
@@ -515,6 +544,7 @@
             this.Controls.Add(this.materialLabel1);
             this.Name = "PlanForm";
             this.Size = new System.Drawing.Size(1168, 570);
+            this.Load += new System.EventHandler(this.PlanForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Plan_Agregado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Demanda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_SS)).EndInit();
@@ -561,5 +591,7 @@
         private System.Windows.Forms.TextBox TXT_T_Elab;
         private MaterialSkin.Controls.MaterialLabel LBL_Total;
         private System.Windows.Forms.DataGridView DGV_Totales;
+        private MaterialSkin.Controls.MaterialLabel LBL_F_Nivelada;
+        private MaterialSkin.Controls.MaterialLabel LBL_Outs;
     }
 }

@@ -31,8 +31,19 @@ namespace MRP.Forms
         public int hrs_diarias;
         public float t_elab;
 
-        public int[] demandas, dias;
+        public int MO_Fnivelada;
+        public int MO_Outs;
 
+        public int[] demandas, dias;
+        public int[] req_list;
+
+        private void PlanForm_Load(object sender, EventArgs e)
+        {
+            this.LBL_Total.Text = "";
+            this.LBL_F_Nivelada.Text = "";
+            this.LBL_Outs.Text = "";
+
+        }
 
         private void BTN_Aceptar_Click(object sender, EventArgs e)
         {
@@ -64,6 +75,7 @@ namespace MRP.Forms
                 DGV_Demanda.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
                 demandas = new int[periodos];
                 dias = new int[periodos];
+                req_list = new int[periodos];
             }
         }
 
@@ -120,6 +132,8 @@ namespace MRP.Forms
                 DGV_Totales.Columns.Clear();
                 DGV_Totales.Rows.Clear();
                 LBL_Total.Text = "";
+                LBL_F_Nivelada.Text = "";
+                LBL_Outs.Text = "";
             }
         }
 
@@ -255,6 +269,8 @@ namespace MRP.Forms
 
                         DGV_Totales.Columns.Clear();
                         DGV_Totales.Rows.Clear();
+                        LBL_F_Nivelada.Text = "";
+                        LBL_Outs.Text = "";
                         Estrategias_Plan_Agregado.persecucion(DGV_SS, DGV_Plan_Agregado, LBL_Total, c_contratar, c_despido, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab);
                     }
                     break;
@@ -290,7 +306,9 @@ namespace MRP.Forms
                         {
                             DGV_Totales.Columns.Clear();
                             DGV_Totales.Rows.Clear();
-                            Estrategias_Plan_Agregado.fuerza_nivelada(DGV_SS, DGV_Plan_Agregado, LBL_Total, c_faltante, H, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, 0);
+                            LBL_F_Nivelada.Text = "";
+                            LBL_Outs.Text = "";
+                            Estrategias_Plan_Agregado.fuerza_nivelada(DGV_SS, DGV_Plan_Agregado, LBL_Total, LBL_F_Nivelada, c_faltante, H, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, 0);
                             
                         }else
                         {
@@ -301,7 +319,9 @@ namespace MRP.Forms
                     {
                         DGV_Totales.Columns.Clear();
                         DGV_Totales.Rows.Clear();
-                        Estrategias_Plan_Agregado.fuerza_nivelada(DGV_SS, DGV_Plan_Agregado, LBL_Total, c_faltante, H, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, f_lab);
+                        LBL_F_Nivelada.Text = "";
+                        LBL_Outs.Text = "";
+                        Estrategias_Plan_Agregado.fuerza_nivelada(DGV_SS, DGV_Plan_Agregado, LBL_Total, LBL_F_Nivelada, c_faltante, H, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, f_lab);
                     }
                     break;
 
@@ -332,7 +352,9 @@ namespace MRP.Forms
                         {
                             DGV_Totales.Columns.Clear();
                             DGV_Totales.Rows.Clear();
-                            Estrategias_Plan_Agregado.outsourcing(DGV_SS, DGV_Plan_Agregado, LBL_Total, c_outsourcing, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, 0);
+                            LBL_F_Nivelada.Text = "";
+                            LBL_Outs.Text = "";
+                            Estrategias_Plan_Agregado.outsourcing(DGV_SS, DGV_Plan_Agregado, LBL_Total, LBL_Outs, c_outsourcing, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, 0);
 
                         }
                         else
@@ -344,7 +366,9 @@ namespace MRP.Forms
                     {
                         DGV_Totales.Columns.Clear();
                         DGV_Totales.Rows.Clear();
-                        Estrategias_Plan_Agregado.outsourcing(DGV_SS, DGV_Plan_Agregado, LBL_Total, c_outsourcing, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, f_lab);
+                        LBL_F_Nivelada.Text = "";
+                        LBL_Outs.Text = "";
+                        Estrategias_Plan_Agregado.outsourcing(DGV_SS, DGV_Plan_Agregado, LBL_Total, LBL_Outs, c_outsourcing, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, f_lab);
                     }
                     break;
 
@@ -388,8 +412,9 @@ namespace MRP.Forms
                             "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (result == DialogResult.Yes)
                         {
-
-                            Estrategias_Plan_Agregado.totales_Estrategias(DGV_Totales, DGV_SS, DGV_Plan_Agregado, LBL_Total, H, c_faltante, c_outsourcing, c_contratar, c_despido, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, 0);
+                            LBL_F_Nivelada.Text = "";
+                            LBL_Outs.Text = "";
+                            Estrategias_Plan_Agregado.totales_Estrategias(DGV_Totales, DGV_SS, DGV_Plan_Agregado, LBL_Total, LBL_F_Nivelada, LBL_Outs, H, c_faltante, c_outsourcing, c_contratar, c_despido, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, 0);
                         }
                         else
                         {
@@ -398,7 +423,9 @@ namespace MRP.Forms
                     }
                     else
                     {
-                        Estrategias_Plan_Agregado.totales_Estrategias(DGV_Totales, DGV_SS, DGV_Plan_Agregado, LBL_Total, H, c_faltante, c_outsourcing, c_contratar, c_despido, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, f_lab);
+                        LBL_F_Nivelada.Text = "";
+                        LBL_Outs.Text = "";
+                        Estrategias_Plan_Agregado.totales_Estrategias(DGV_Totales, DGV_SS, DGV_Plan_Agregado, LBL_Total, LBL_F_Nivelada, LBL_Outs, H, c_faltante, c_outsourcing, c_contratar, c_despido, c_hrs_n, hrs_diarias, tasa_ss, inv_ini, periodos, demandas, dias, t_elab, f_lab);
                     }
                     break;
             }
