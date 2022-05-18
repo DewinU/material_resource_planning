@@ -191,6 +191,7 @@
             this.txtNivelServicio.Name = "txtNivelServicio";
             this.txtNivelServicio.Size = new System.Drawing.Size(174, 20);
             this.txtNivelServicio.TabIndex = 51;
+            this.txtNivelServicio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNivelServicio_KeyPress);
             // 
             // materialLabel5
             // 

@@ -351,6 +351,7 @@
             this.txtPrecioCompra.TabIndex = 21;
             this.txtPrecioCompra.Text = "";
             this.txtPrecioCompra.TrailingIcon = null;
+            this.txtPrecioCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCompra_KeyPress);
             // 
             // label5
             // 

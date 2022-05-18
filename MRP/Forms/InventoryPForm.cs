@@ -85,6 +85,7 @@ namespace MRP.Forms
                 MessageBox.Show("Demanda no puede ser en decimales", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            
 
             double zScore = F(double.Parse(txtNivelServicio.Text) / 100);
             int ss = calcSecurityStock(int.Parse(txtStdev.Text), zScore);
@@ -136,6 +137,11 @@ namespace MRP.Forms
             bool isNum = Double.TryParse(Convert.ToString(txt.Text), System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out retNum);
             return isNum;
 
+        }
+
+        private void txtNivelServicio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
         }
     }
 }

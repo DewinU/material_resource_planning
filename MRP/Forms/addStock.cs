@@ -174,5 +174,10 @@ namespace MRP.Forms
         {
             Validaciones.SoloNumeros(e);
         }
+
+        private void txtPrecioCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
     }
 }

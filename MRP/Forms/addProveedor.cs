@@ -115,5 +115,10 @@ namespace MRP.Forms
 
             return isVal;
         }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloLetras(e);
+        }
     }
 }

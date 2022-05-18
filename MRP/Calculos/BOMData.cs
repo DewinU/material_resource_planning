@@ -112,7 +112,7 @@ namespace MRP.Calculos
                 BdList.Remove(vt);
             }
 
-            BomList.Remove(BomList.First(x => x.IdBOM == id));
+           // BomList.Remove(BomList.First(x => x.IdBOM == id));
         }
 
     }

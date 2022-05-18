@@ -87,6 +87,7 @@
             this.TXT_Periodos.Name = "TXT_Periodos";
             this.TXT_Periodos.Size = new System.Drawing.Size(100, 20);
             this.TXT_Periodos.TabIndex = 1;
+            this.TXT_Periodos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXT_Periodos_KeyPress);
             // 
             // DGV_Plan_Agregado
             // 

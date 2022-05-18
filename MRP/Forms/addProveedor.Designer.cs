@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.txtNombre = new MaterialSkin.Controls.MaterialTextBox2();
-            this.txtTelefono = new MaterialSkin.Controls.MaterialTextBox2();
             this.txtDireccion = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.txtId = new MaterialSkin.Controls.MaterialTextBox2();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtTelefono = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.panel2.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -73,34 +73,7 @@
             this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtNombre.TrailingIcon = null;
             this.txtNombre.UseSystemPasswordChar = false;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.AnimateReadOnly = false;
-            this.txtTelefono.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.txtTelefono.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtTelefono.Depth = 0;
-            this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtTelefono.HideSelection = true;
-            this.txtTelefono.LeadingIcon = null;
-            this.txtTelefono.Location = new System.Drawing.Point(309, 226);
-            this.txtTelefono.MaxLength = 32767;
-            this.txtTelefono.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.PasswordChar = '\0';
-            this.txtTelefono.PrefixSuffixText = null;
-            this.txtTelefono.ReadOnly = false;
-            this.txtTelefono.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtTelefono.SelectedText = "";
-            this.txtTelefono.SelectionLength = 0;
-            this.txtTelefono.SelectionStart = 0;
-            this.txtTelefono.ShortcutsEnabled = true;
-            this.txtTelefono.Size = new System.Drawing.Size(295, 48);
-            this.txtTelefono.TabIndex = 1;
-            this.txtTelefono.TabStop = false;
-            this.txtTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtTelefono.TrailingIcon = null;
-            this.txtTelefono.UseSystemPasswordChar = false;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtDireccion
             // 
@@ -177,6 +150,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(296, 540);
             this.panel2.TabIndex = 6;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::MRP.Properties.Resources.Proveeodr;
+            this.pictureBox1.Location = new System.Drawing.Point(45, 89);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(209, 348);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -261,21 +244,54 @@
             this.materialButton2.UseVisualStyleBackColor = true;
             this.materialButton2.Click += new System.EventHandler(this.materialButton2_Click);
             // 
-            // pictureBox1
+            // txtTelefono
             // 
-            this.pictureBox1.Image = global::MRP.Properties.Resources.Proveeodr;
-            this.pictureBox1.Location = new System.Drawing.Point(45, 89);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(209, 348);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.txtTelefono.AllowPromptAsInput = true;
+            this.txtTelefono.AnimateReadOnly = false;
+            this.txtTelefono.AsciiOnly = false;
+            this.txtTelefono.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtTelefono.BeepOnError = false;
+            this.txtTelefono.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.txtTelefono.Depth = 0;
+            this.txtTelefono.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtTelefono.HidePromptOnLeave = false;
+            this.txtTelefono.HideSelection = true;
+            this.txtTelefono.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
+            this.txtTelefono.LeadingIcon = null;
+            this.txtTelefono.Location = new System.Drawing.Point(309, 226);
+            this.txtTelefono.Mask = "0000-0000";
+            this.txtTelefono.MaxLength = 32767;
+            this.txtTelefono.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.PasswordChar = '\0';
+            this.txtTelefono.PrefixSuffixText = null;
+            this.txtTelefono.PromptChar = '_';
+            this.txtTelefono.ReadOnly = false;
+            this.txtTelefono.RejectInputOnFirstFailure = false;
+            this.txtTelefono.ResetOnPrompt = true;
+            this.txtTelefono.ResetOnSpace = true;
+            this.txtTelefono.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtTelefono.SelectedText = "";
+            this.txtTelefono.SelectionLength = 0;
+            this.txtTelefono.SelectionStart = 0;
+            this.txtTelefono.ShortcutsEnabled = true;
+            this.txtTelefono.Size = new System.Drawing.Size(295, 48);
+            this.txtTelefono.SkipLiterals = true;
+            this.txtTelefono.TabIndex = 12;
+            this.txtTelefono.TabStop = false;
+            this.txtTelefono.Text = "    -";
+            this.txtTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtTelefono.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.txtTelefono.TrailingIcon = null;
+            this.txtTelefono.UseSystemPasswordChar = false;
+            this.txtTelefono.ValidatingType = null;
             // 
             // addProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.materialButton2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label4);
@@ -285,15 +301,14 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.txtDireccion);
-            this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtNombre);
             this.Name = "addProveedor";
             this.Size = new System.Drawing.Size(974, 540);
             this.Load += new System.EventHandler(this.addProveedor_Load);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,7 +317,6 @@
         #endregion
 
         private MaterialSkin.Controls.MaterialTextBox2 txtNombre;
-        private MaterialSkin.Controls.MaterialTextBox2 txtTelefono;
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 txtDireccion;
         private MaterialSkin.Controls.MaterialTextBox2 txtId;
         private System.Windows.Forms.Label label1;
@@ -314,5 +328,6 @@
         private MaterialSkin.Controls.MaterialButton materialButton1;
         private MaterialSkin.Controls.MaterialButton materialButton2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private MaterialSkin.Controls.MaterialMaskedTextBox txtTelefono;
     }
 }

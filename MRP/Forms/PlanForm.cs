@@ -435,6 +435,11 @@ namespace MRP.Forms
             this.DGV_SS.ClearSelection();
         }
 
+        private void TXT_Periodos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
+
         private void Limpiar_Cajas()
         {
             TXT_Contratar.Text = "";

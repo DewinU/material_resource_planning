@@ -50,13 +50,14 @@ namespace Validar
             }
         }
 
-        public static void SoloNumeros(KeyPressEventArgs e)
+        public static void SoloNumerosEnteros(KeyPressEventArgs e)
         {
-            if (Char.IsDigit(e.KeyChar))
+
+            if (Char.IsDigit(e.KeyChar) )
             {
                 e.Handled = false;
             }
-            else if (Char.IsSeparator(e.KeyChar))
+            else if (Char.IsSeparator(e.KeyChar) )
             {
                 e.Handled = false;
             }
@@ -68,6 +69,20 @@ namespace Validar
             {
                 e.Handled = true;
             }
+        }
+
+        public static void SoloNumeros(KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar) || e.KeyChar == '.')
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                MessageBox.Show("Ingrese valores válidos.", "Mensaje de Información");
+                e.Handled = true;
+            }
+            
         }
     }
 }
