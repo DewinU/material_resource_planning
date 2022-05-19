@@ -76,10 +76,11 @@ namespace MRP.Calculos
             MateriaPrima prima = new MateriaPrima(1, 1, "Mesa", "Und", 3, 50, 2, 30, true, 4, 10, 0.10);
             MateriaPrima prima1 = new MateriaPrima(2, 1, "Pata de Mesa", "Und", 4, 25, 1, 52, false, 5, 5, 0.05);
             MateriaPrima prima2 = new MateriaPrima(3, "Tabla de Mesa", "Und", 2, 10, 2, 35, false, 5, 8, 0.07);
-
+            MateriaPrima prima3 = new MateriaPrima(4, 2, "DewinObjeto", "pixeles", 0, 10, 1, 0, true, 0, 47, 0.5);
             mpList.Add(prima);
             mpList.Add(prima1);
             mpList.Add(prima2);
+            mpList.Add(prima3);
         }
 
         public static int getLastId()

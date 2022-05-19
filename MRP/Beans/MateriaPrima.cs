@@ -9,7 +9,7 @@ namespace MRP.Beans
     public class MateriaPrima
     {
         public int IdMP { get; set; }
-        public int? IdProv { get; set; }
+        public int IdProv { get; set; }
         public string Nombre { get; set; }
         public string UdM { get; set; }
         public int? MinStock { get; set; }
