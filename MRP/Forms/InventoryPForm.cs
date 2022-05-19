@@ -143,5 +143,43 @@ namespace MRP.Forms
         {
             Validar.Validaciones.SoloNumeros(e);
         }
+
+        private void txtDemanda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumerosEnteros(e);
+
+        }
+
+        private void txtPedido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
+
+        private void txtMantenimiento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+
+        }
+
+        private void txtCostoUnitario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
+
+        private void txtStdev_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
+
+        private void txtInventario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumerosEnteros(e);
+
+        }
+
+        private void txtDiasLaborales_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
     }
 }

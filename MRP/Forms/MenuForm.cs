@@ -84,10 +84,10 @@ namespace MRP.Forms
             ChangeUserControl(new ModelosP());
         }
 
-        private void btnModelos_Click(object sender, EventArgs e)
-        {
-            ChangeUserControl(new MRPForm());
-        }
+        //private void btnModelos_Click(object sender, EventArgs e)
+        //{
+        //    ChangeUserControl(new MRPForm());
+        //}
 
         private void setMainFrame(int id)
         {
@@ -104,9 +104,6 @@ namespace MRP.Forms
                     break;
                 case 4:
                     ChangeUserControl(new ModelosP());
-                    break;
-                case 5:
-                    ChangeUserControl(new MRPForm());
                     break;
                 default:
                     return;

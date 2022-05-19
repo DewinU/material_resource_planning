@@ -133,6 +133,7 @@
             this.TXT_H.Name = "TXT_H";
             this.TXT_H.Size = new System.Drawing.Size(118, 20);
             this.TXT_H.TabIndex = 7;
+            this.TXT_H.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXT_H_KeyPress);
             // 
             // materialLabel3
             // 
@@ -152,6 +153,7 @@
             this.TXT_C_Faltante.Name = "TXT_C_Faltante";
             this.TXT_C_Faltante.Size = new System.Drawing.Size(118, 20);
             this.TXT_C_Faltante.TabIndex = 9;
+            this.TXT_C_Faltante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXT_C_Faltante_KeyPress);
             // 
             // materialLabel4
             // 
@@ -171,6 +173,7 @@
             this.TXT_Outs.Name = "TXT_Outs";
             this.TXT_Outs.Size = new System.Drawing.Size(118, 20);
             this.TXT_Outs.TabIndex = 11;
+            this.TXT_Outs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXT_Outs_KeyPress);
             // 
             // materialLabel5
             // 
@@ -190,6 +193,7 @@
             this.TXT_Contratar.Name = "TXT_Contratar";
             this.TXT_Contratar.Size = new System.Drawing.Size(118, 20);
             this.TXT_Contratar.TabIndex = 13;
+            this.TXT_Contratar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXT_Contratar_KeyPress);
             // 
             // materialLabel6
             // 
@@ -209,6 +213,7 @@
             this.TXT_Despedir.Name = "TXT_Despedir";
             this.TXT_Despedir.Size = new System.Drawing.Size(118, 20);
             this.TXT_Despedir.TabIndex = 15;
+            this.TXT_Despedir.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXT_Despedir_KeyPress);
             // 
             // materialLabel7
             // 
@@ -228,6 +233,7 @@
             this.TXT_C_Hr_N.Name = "TXT_C_Hr_N";
             this.TXT_C_Hr_N.Size = new System.Drawing.Size(129, 20);
             this.TXT_C_Hr_N.TabIndex = 17;
+            this.TXT_C_Hr_N.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXT_C_Hr_N_KeyPress);
             // 
             // materialLabel8
             // 
@@ -371,6 +377,7 @@
             this.TXT_Costo.Name = "TXT_Costo";
             this.TXT_Costo.Size = new System.Drawing.Size(118, 20);
             this.TXT_Costo.TabIndex = 5;
+            this.TXT_Costo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXT_Costo_KeyPress);
             // 
             // materialLabel13
             // 
@@ -450,12 +457,13 @@
             this.TXT_T_Elab.Name = "TXT_T_Elab";
             this.TXT_T_Elab.Size = new System.Drawing.Size(47, 20);
             this.TXT_T_Elab.TabIndex = 38;
+            this.TXT_T_Elab.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXT_T_Elab_KeyPress);
             // 
             // LBL_Total
             // 
             this.LBL_Total.AutoSize = true;
             this.LBL_Total.Depth = 0;
-            this.LBL_Total.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.LBL_Total.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.LBL_Total.Location = new System.Drawing.Point(399, 508);
             this.LBL_Total.MouseState = MaterialSkin.MouseState.HOVER;
             this.LBL_Total.Name = "LBL_Total";

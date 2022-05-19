@@ -138,5 +138,31 @@ namespace MRP.Forms
             costoProducto.Clear();
             tasaMantenimiento.Clear();
         }
+
+        private void costoPedir_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
+
+        private void costoProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+
+        }
+
+        private void tasaMantenimiento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
+
+        private void demandaTable_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
+
+        private void demandaTable_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

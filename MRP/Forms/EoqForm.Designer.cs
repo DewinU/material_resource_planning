@@ -118,6 +118,7 @@
             this.txtPedido.Name = "txtPedido";
             this.txtPedido.Size = new System.Drawing.Size(174, 20);
             this.txtPedido.TabIndex = 12;
+            this.txtPedido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPedido_KeyPress);
             // 
             // materialLabel1
             // 
@@ -137,6 +138,7 @@
             this.txtDemanda.Name = "txtDemanda";
             this.txtDemanda.Size = new System.Drawing.Size(136, 20);
             this.txtDemanda.TabIndex = 14;
+            this.txtDemanda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDemanda_KeyPress);
             // 
             // costoFaltante
             // 
@@ -156,6 +158,7 @@
             this.txtMantenimiento.Name = "txtMantenimiento";
             this.txtMantenimiento.Size = new System.Drawing.Size(174, 20);
             this.txtMantenimiento.TabIndex = 16;
+            this.txtMantenimiento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMantenimiento_KeyPress);
             // 
             // materialLabel2
             // 
@@ -175,6 +178,7 @@
             this.txtCostoUnitario.Name = "txtCostoUnitario";
             this.txtCostoUnitario.Size = new System.Drawing.Size(174, 20);
             this.txtCostoUnitario.TabIndex = 20;
+            this.txtCostoUnitario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCostoUnitario_KeyPress);
             // 
             // materialLabel4
             // 
@@ -194,6 +198,7 @@
             this.txtNivelServicio.Name = "txtNivelServicio";
             this.txtNivelServicio.Size = new System.Drawing.Size(174, 20);
             this.txtNivelServicio.TabIndex = 22;
+            this.txtNivelServicio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNivelServicio_KeyPress);
             // 
             // materialLabel5
             // 
@@ -225,6 +230,7 @@
             this.txtStdev.Name = "txtStdev";
             this.txtStdev.Size = new System.Drawing.Size(174, 20);
             this.txtStdev.TabIndex = 26;
+            this.txtStdev.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStdev_KeyPress);
             // 
             // materialLabel8
             // 
@@ -346,6 +352,7 @@
             this.txtDiasLaborales.Name = "txtDiasLaborales";
             this.txtDiasLaborales.Size = new System.Drawing.Size(64, 20);
             this.txtDiasLaborales.TabIndex = 42;
+            this.txtDiasLaborales.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiasLaborales_KeyPress);
             // 
             // EoqForm
             // 

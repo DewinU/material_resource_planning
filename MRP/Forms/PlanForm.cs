@@ -464,6 +464,46 @@ namespace MRP.Forms
 
         private void TXT_Periodos_KeyPress(object sender, KeyPressEventArgs e)
         {
+            Validar.Validaciones.SoloNumerosEnteros(e);
+        }
+
+        private void TXT_Costo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
+
+        private void TXT_H_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
+
+        private void TXT_C_Faltante_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
+
+        private void TXT_Outs_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
+
+        private void TXT_Contratar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
+
+        private void TXT_Despedir_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
+
+        private void TXT_C_Hr_N_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
+
+        private void TXT_T_Elab_KeyPress(object sender, KeyPressEventArgs e)
+        {
             Validar.Validaciones.SoloNumeros(e);
         }
 

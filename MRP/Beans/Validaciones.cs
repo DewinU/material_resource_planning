@@ -73,16 +73,15 @@ namespace Validar
 
         public static void SoloNumeros(KeyPressEventArgs e)
         {
-            if (char.IsNumber(e.KeyChar) || e.KeyChar == '.')
+            if (char.IsNumber(e.KeyChar) || e.KeyChar == '.' || char.IsControl(e.KeyChar))
             {
                 e.Handled = false;
             }
             else
             {
-                MessageBox.Show("Ingrese valores válidos.", "Mensaje de Información");
                 e.Handled = true;
             }
-            
+
         }
     }
 }

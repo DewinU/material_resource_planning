@@ -183,6 +183,8 @@
             this.demandaTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.demandaTable.Size = new System.Drawing.Size(599, 123);
             this.demandaTable.TabIndex = 3;
+            this.demandaTable.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.demandaTable_CellEnter);
+            this.demandaTable.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.demandaTable_KeyPress);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -227,6 +229,7 @@
             this.costoPedir.Name = "costoPedir";
             this.costoPedir.Size = new System.Drawing.Size(174, 20);
             this.costoPedir.TabIndex = 11;
+            this.costoPedir.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.costoPedir_KeyPress);
             // 
             // demandaButton
             // 
@@ -308,6 +311,7 @@
             this.tasaMantenimiento.Name = "tasaMantenimiento";
             this.tasaMantenimiento.Size = new System.Drawing.Size(174, 20);
             this.tasaMantenimiento.TabIndex = 10;
+            this.tasaMantenimiento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tasaMantenimiento_KeyPress);
             // 
             // tasaMantenimientoLbl
             // 
@@ -327,6 +331,7 @@
             this.costoProducto.Name = "costoProducto";
             this.costoProducto.Size = new System.Drawing.Size(174, 20);
             this.costoProducto.TabIndex = 9;
+            this.costoProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.costoProducto_KeyPress);
             // 
             // costoProductoLbl
             // 

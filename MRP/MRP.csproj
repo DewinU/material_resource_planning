@@ -138,12 +138,6 @@
     <Compile Include="Forms\MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MRPForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Forms\MRPForm.Designer.cs">
-      <DependentUpon>MRPForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\ModelosP.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -193,9 +187,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MRPForm.resx">
-      <DependentUpon>MRPForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ModelosP.resx">
       <DependentUpon>ModelosP.cs</DependentUpon>

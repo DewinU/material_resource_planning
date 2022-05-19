@@ -113,5 +113,43 @@ namespace MRP.Forms
             double costoProd = demanda * int.Parse(txtDiasLaborales.Text) * costo;
             return (costoOrdenamiento + costoMantenimiento + costoProd);
         }
+
+        private void txtDemanda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumerosEnteros(e);
+        }
+
+        private void txtPedido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
+
+        private void txtMantenimiento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+
+        }
+
+        private void txtCostoUnitario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
+
+        private void txtNivelServicio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+
+        }
+
+        private void txtStdev_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
+
+        private void txtDiasLaborales_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+
+        }
     }
 }
