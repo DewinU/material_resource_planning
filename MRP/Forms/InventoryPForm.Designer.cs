@@ -325,9 +325,9 @@
             this.materialLabel4.Location = new System.Drawing.Point(24, 149);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(184, 19);
+            this.materialLabel4.Size = new System.Drawing.Size(100, 19);
             this.materialLabel4.TabIndex = 48;
-            this.materialLabel4.Text = "Costo unitario por unidad:";
+            this.materialLabel4.Text = "Costo unitario";
             // 
             // flowLayoutPanel1
             // 

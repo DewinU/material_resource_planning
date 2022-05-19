@@ -90,10 +90,11 @@ namespace MRP.Forms
             double zScore = F(double.Parse(txtNivelServicio.Text) / 100);
             int ss = calcSecurityStock(int.Parse(txtStdev.Text), zScore);
             int cantidad = calcModelP(int.Parse(txtDemanda.Text), int.Parse(numPlazo.Value.ToString()), int.Parse(numRevision.Value.ToString()), int.Parse(txtStdev.Text), int.Parse(txtInventario.Text), ss);
+            double tbo = (cantidad / int.Parse(txtDemanda.Text));
 
             string costo = calcCosto(int.Parse(txtDemanda.Text), double.Parse(txtPedido.Text), double.Parse(txtMantenimiento.Text), cantidad, double.Parse(txtCostoUnitario.Text)).ToString("C3");
             solRichTextBox.Text = $"Si se establece un sistema de administración de inventario de periodos fijos se deben hacer pedidos de {cantidad.ToString("N0")} unidades." +
-                $" El inventario de seguridad con este sistema es de {ss.ToString("N0")} unidades y tiene un costo de {costo} unidades monetarias.";
+                $" El inventario de seguridad con este sistema es de {ss.ToString("N0")} unidades .Tambien se debe realizar los pedidos cada {int.Parse(numRevision.Value.ToString())} dias y tiene un costo de {costo} unidades monetarias.";
 
 
         }

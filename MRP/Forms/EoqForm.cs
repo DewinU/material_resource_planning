@@ -24,13 +24,14 @@ namespace MRP.Forms
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Grey600, Primary.Grey900, Primary.Grey500, Accent.Indigo100, TextShade.WHITE);
             solRichTextBox.Enabled = false;
-            txtCostoUnitario.Text = "10";
-            txtDemanda.Text = "200";
-            txtMantenimiento.Text = "2";
-            txtNivelServicio.Text = "95";
-            txtPedido.Text = "20";
-            txtStdev.Text = "10";
-            numPlazo.Value = 4;
+            txtCostoUnitario.Text = "0.5";
+            txtDemanda.Text = "35";
+            txtMantenimiento.Text = "700";
+            txtNivelServicio.Text = "98";
+            txtPedido.Text = "50";
+            txtStdev.Text = "5";
+            numPlazo.Value = 3;
+            txtDiasLaborales.Text = "250";
 
         }
 
@@ -77,8 +78,9 @@ namespace MRP.Forms
                 int securityStock = calcSecurityStock(int.Parse(txtStdev.Text), zScore);
                 int rop = calcRop(int.Parse(txtDemanda.Text), int.Parse(numPlazo.Value.ToString()), securityStock);
                 double costoTotal = calcCosto(int.Parse(txtDemanda.Text), double.Parse(txtPedido.Text), double.Parse(txtMantenimiento.Text), eoq, double.Parse(txtCostoUnitario.Text));
+                double tbo = (eoq / int.Parse(txtDemanda.Text));
                 solRichTextBox.Text = $"Si se establece un sistema de administración de inventario de revisión continua se deben hacer pedidos de {eoq.ToString("N0")} unidades. Además se debe estar revisando continuamente las existencias del producto. " +
-                                      $"Vigilando que cuando las existencias sean menores o iguales a {rop.ToString("N0")} unidades se realice un nuevo pedido. El inventario de seguridad con este sistema es de {securityStock.ToString("N0")} unidades y tiene un costo de {costoTotal.ToString("C3")} unidades monetarias.";
+                                      $"Vigilando que cuando las existencias sean menores o iguales a {rop.ToString("N0")} unidades se realice un nuevo pedido. El inventario de seguridad con este sistema es de {securityStock.ToString("N0")} unidades. Tambien se deben realizar los pedidos cada {tbo.ToString("N0")} dias y tiene un costo de {costoTotal.ToString("C3")} unidades monetarias.";
             }
             catch (Exception exception)
             {
