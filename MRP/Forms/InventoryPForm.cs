@@ -85,14 +85,14 @@ namespace MRP.Forms
                 MessageBox.Show("Demanda no puede ser en decimales", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+
 
             double zScore = F(double.Parse(txtNivelServicio.Text) / 100);
             int ss = calcSecurityStock(int.Parse(txtStdev.Text), zScore);
             int cantidad = calcModelP(int.Parse(txtDemanda.Text), int.Parse(numPlazo.Value.ToString()), int.Parse(numRevision.Value.ToString()), int.Parse(txtStdev.Text), int.Parse(txtInventario.Text), ss);
 
             string costo = calcCosto(int.Parse(txtDemanda.Text), double.Parse(txtPedido.Text), double.Parse(txtMantenimiento.Text), cantidad, double.Parse(txtCostoUnitario.Text)).ToString("C3");
-            solRichTextBox.Text = $"Si se establece un sistema de administración de inventario de periodos fijos se deben hacer pedidos de {cantidad.ToString("N0")} unidades. Además se debe de hacer pedidos cada {numRevision.Value} periodos." +
+            solRichTextBox.Text = $"Si se establece un sistema de administración de inventario de periodos fijos se deben hacer pedidos de {cantidad.ToString("N0")} unidades." +
                 $" El inventario de seguridad con este sistema es de {ss.ToString("N0")} unidades y tiene un costo de {costo} unidades monetarias.";
 
 
