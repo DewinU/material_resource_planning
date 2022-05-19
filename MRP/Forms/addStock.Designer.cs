@@ -252,6 +252,7 @@
             this.txtTasaMantenimiento.TabIndex = 33;
             this.txtTasaMantenimiento.Text = "";
             this.txtTasaMantenimiento.TrailingIcon = null;
+            this.txtTasaMantenimiento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTasaMantenimiento_KeyPress);
             // 
             // label10
             // 
@@ -282,6 +283,7 @@
             this.txtCostoEnvio.TabIndex = 31;
             this.txtCostoEnvio.Text = "";
             this.txtCostoEnvio.TrailingIcon = null;
+            this.txtCostoEnvio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCostoEnvio_KeyPress);
             // 
             // txtCostoMantenimiento
             // 
@@ -300,6 +302,7 @@
             this.txtCostoMantenimiento.TabIndex = 28;
             this.txtCostoMantenimiento.Text = "";
             this.txtCostoMantenimiento.TrailingIcon = null;
+            this.txtCostoMantenimiento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCostoMantenimiento_KeyPress);
             // 
             // label9
             // 

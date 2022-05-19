@@ -75,23 +75,38 @@ namespace MRP.Forms
 
         private void ContextMenuClick(Object sender, System.EventArgs e)
         {
-            MateriaPrima currentObject = (MateriaPrima)dataGridView1.CurrentRow.DataBoundItem;
-            switch (sender.ToString().Trim())
+            try
             {
-                case "Editar":
+                if (dataGridView1.CurrentRow == null)
+                {
+                    MessageBox.Show("Tabla vacia operacion no posible", "Error de proceso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                MateriaPrima currentObject = (MateriaPrima)dataGridView1.CurrentRow.DataBoundItem;
+                switch (sender.ToString().Trim())
+                {
+                    case "Editar":
 
-                    addStock prov = new addStock(panelCont);
-                    panelCont.Controls.Clear();
-                    prov.setMp(currentObject);
-                    prov.Dock = DockStyle.Fill;
-                    panelCont.Controls.Add(prov);
-                    break;
-                case "Eliminar":
+                        addStock prov = new addStock(panelCont);
+                        panelCont.Controls.Clear();
+                        prov.setMp(currentObject);
+                        prov.Dock = DockStyle.Fill;
+                        panelCont.Controls.Add(prov);
+                        break;
+                    case "Eliminar":
 
-                    dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
-                    mpData.deleteMp(currentObject.IdMP);
-                    break;
+                        dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
+                        mpData.deleteMp(currentObject.IdMP);
+                        break;
+                }
             }
+            catch (NullReferenceException a)
+            {
+                MessageBox.Show("Tabla vacia operacion no posible", "Error de proceso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
         }
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)

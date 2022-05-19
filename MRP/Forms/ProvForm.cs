@@ -78,6 +78,11 @@ namespace MRP.Forms
 
         private void ContextMenuClick(Object sender, System.EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Tabla vacia operacion no posible", "Error de proceso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             Proveedor currentObject = (Proveedor)dataGridView1.CurrentRow.DataBoundItem;
             switch (sender.ToString().Trim())
             {

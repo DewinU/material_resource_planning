@@ -40,7 +40,7 @@ namespace MRP.Forms
 
         private void materialButton2_Click(object sender, EventArgs e)
         {
-            if (!validateCampos())
+            if (!validateCampos() || !menorQue0())
             {
                 if (flag)
                 {
@@ -55,7 +55,7 @@ namespace MRP.Forms
             }
             else
             {
-                MessageBox.Show("Por favor rellene todos los campos", "Error de ingreso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Campos vacios 0 datos no pueden ser menores que 0", "Error de ingreso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -150,6 +150,16 @@ namespace MRP.Forms
             return isNullOrWhiteSpace;
         }
 
+        private bool menorQue0()
+        {
+            if (int.Parse(txtStock.Text) < 0 || int.Parse(txtCostoEnvio.Text) < 0 || int.Parse(txtCostoMantenimiento.Text) < 0 || int.Parse(txtMinStock.Text) < 0 || int.Parse(txtPrecioCompra.Text) < 0 || int.Parse(txtTasaMantenimiento.Text) < 0 || int.Parse(txtTiempoEntrega.Text) < 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validaciones.SoloNumeros(e);
@@ -176,6 +186,21 @@ namespace MRP.Forms
         }
 
         private void txtPrecioCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
+
+        private void txtCostoMantenimiento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
+
+        private void txtCostoEnvio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.Validaciones.SoloNumeros(e);
+        }
+
+        private void txtTasaMantenimiento_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.Validaciones.SoloNumeros(e);
         }
